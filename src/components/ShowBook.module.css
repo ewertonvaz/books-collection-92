@@ -1,0 +1,15 @@
+.wrapper {
+   width: 18rem;
+}
+
+.wrapper:hover {
+    cursor: pointer;
+}
+
+.wrapper img {
+    width: 120;
+    height: 180px;
+    /* opacity: 0.2; */
+    object-fit: cover;
+    object-position: 0 50%;
+}

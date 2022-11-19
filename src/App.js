@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CadastroPage from './pages/CadastroPage';
 import EditarPage from './pages/EditarPage';
+import GoogleBooksPage from './pages/GoogleBooksPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/cadastro" element={<CadastroPage />} />
         <Route path="/editar" element={<EditarPage />} />
+        <Route path="/pesquisar" element={<GoogleBooksPage />} />
       </Routes>
     </div>
   );
