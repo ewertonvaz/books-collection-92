@@ -1,11 +1,11 @@
-import styles from "./ShowBook.module.css";
+import styles from "./GoogleBookCard.module.css";
 import { Card, Button } from 'react-bootstrap';
 
-function ShowBook({book}) {
+function ShowBook({book, onClick}) {
     const { volumeInfo } = book;
     const images = volumeInfo.imageLinks ? Object.values(volumeInfo.imageLinks) : [];
     return ( 
-        <Card className={styles["wrapper"]}>
+        <Card className={styles.wrapper} onClick={onClick}>
             <Card.Img variant="top" src={images[0]} alt="capa do livro"/>
             <Card.Body>
                 <Card.Title>{volumeInfo.title}</Card.Title>

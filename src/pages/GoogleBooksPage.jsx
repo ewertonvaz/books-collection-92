@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
-import ShowBook from "../components/ShowBook";
+import GoogleBookCard from "../components/GoogleBookCard";
 import { Container, Col, Row, InputGroup, Form } from "react-bootstrap";
 import Paginator from "../components/Paginator";
+import GoogleBookDetails from "../components/GoogleBookDetails";
 const apiUrl = "https://www.googleapis.com/books/v1/volumes";
 
 function GoogleBooksPage() {
@@ -22,9 +23,17 @@ function GoogleBooksPage() {
     const [search, setSearch] = useState("");
     const [loading, setLoading] = useState(false);
     const [books, setBooks] = useState({});
+    const [showBook, setShowBook] = useState(false);
+    const [actualBook, setActualBook ] = useState({
+            volumeInfo : {
+                title: ""
+            }
+        });
 
     let colArray = [];
     let itemCount = 0;
+
+    
 
     async function doSearch(startIndex, currPage){
         setLoading(true);
@@ -45,17 +54,22 @@ function GoogleBooksPage() {
         }
         setLoading(false);
     }
-  
-    // useEffect( 
-    //     () =>  {},
-    //     []
-    // );
 
     function handleSearch(e){
         setSearch( e.target.value )
     }
 
+    function showDetails(book){
+        setActualBook(book);
+        setShowBook(true);
+    }
+
+    function hideDetails(){
+        setShowBook(false);
+    }
+
     return (<Container>
+        <GoogleBookDetails show={showBook} book={actualBook} hide={hideDetails}/>
         <InputGroup className="my-3">
             <Form.Control
                 placeholder="Digite o livro a pesquisar"
@@ -74,14 +88,8 @@ function GoogleBooksPage() {
             loading ? <p>Carregando...</p>  : 
             <>
                 {
-                    // books.items.map( book => {
-                    //     return (
-                    //         <ShowBook key={book.id} book={book} />
-                    //     );
-                    // })
-
                     books.items && books.items.forEach( book => {
-                        colArray.push(<Col key={book.id}><ShowBook key={book.id} book={book} /></Col>);
+                        colArray.push(<Col key={book.id}><GoogleBookCard key={book.id} book={book} onClick={() => showDetails(book)}/></Col>);
                         itemCount++;
                         if (itemCount % colCount === 0) { 
                             rowArray.push(<Row key={`row_${itemCount}_${book.name}`} className="my-4"> {colArray} </Row>);
