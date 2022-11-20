@@ -1,16 +1,15 @@
 import NavBar from "../components/NavBar";
+import { Link } from "react-router-dom";
 
 function EditarPage() {
+  return (
+    <div>
+      <NavBar />
+      <Link to={"/livro/ultimapag/xx"}>Teste Última Página</Link>
 
-    return (
-        <div>
-
-            <NavBar />
-
-            <h1>Detalhes Page</h1>
-
-        </div>
-    );
+      <h1>Detalhes Page</h1>
+    </div>
+  );
 }
 
 export default EditarPage;
