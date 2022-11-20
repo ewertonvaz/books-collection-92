@@ -9,6 +9,11 @@ body {
   height: 100px;
 }
 
+.footer{
+  font-size: 10pt;
+  margin-top: 50px;
+  padding: 5px;
+}
 
 .livro-lista {
   display: flex;

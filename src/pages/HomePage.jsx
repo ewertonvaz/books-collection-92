@@ -12,7 +12,7 @@ function HomePage() {
                 <div className="row justify-content-between">
                     <div className="col-5">
                         <form className="form-inline">
-                            <div className="input-group">
+                            <div className="input-group justify-content-start">
                                 <input className="form-control" type="text" placeholder="" name="pesquisar" />
                                 <button className="btn btn-outline-secondary" type="submit">
                                     <FontAwesomeIcon icon={faSearch} />
@@ -20,9 +20,9 @@ function HomePage() {
                             </div>
                         </form>
                     </div>
-                    <div className="col-2">
+                    <div className="col-5">
                         <form className="form-inline">
-                            <div className="input-group">
+                            <div className="input-group justify-content-end">
                                 <button className="btn btn-dark" type="submit">Adicionar livro
                                 </button>
                             </div>
@@ -58,6 +58,12 @@ function HomePage() {
                     </div>
                 </div>
             </div>
+            <footer>
+                <div class="footer col-md-12 text-center">
+                    <hr />
+                    <p>Desenvolvido por Ewerton, Priscila, Roberto e Rodrigo. <br /> Turma ENAP WDFT-92/2022</p>
+                </div>
+            </footer>
         </div>
     );
 }
