@@ -6,17 +6,26 @@ import HomePage from './pages/HomePage';
 import CadastroPage from './pages/CadastroPage';
 import EditarPage from './pages/EditarPage';
 import GoogleBooksPage from './pages/GoogleBooksPage';
+import DetalhesPage from './pages/DetalhesPage';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <div className="App">
       <Toaster />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/cadastro" element={<CadastroPage />} />
-        <Route path="/editar" element={<EditarPage />} />
-        <Route path="/pesquisar" element={<GoogleBooksPage />} />
-      </Routes>
+      <NavBar />
+
+      <div className='container'>
+
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/livro/cadastro" element={<CadastroPage />} />
+          <Route path="/livro/:livroID" element={<DetalhesPage />} />
+          <Route path="/livro/:livroID/editar" element={<EditarPage />} />
+          <Route path="/pesquisar" element={<GoogleBooksPage />} />
+        </Routes>
+      </div>
+
     </div>
   );
 }
