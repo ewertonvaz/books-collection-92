@@ -6,12 +6,12 @@ function LivroCard({ livro }) {
 
         <div className="livro-card">
             <div>
-                <Link key={livro._id} to={`/livro/${livro._id}`}>
+                <Link to={`/livro/${livro._id}`}>
                     <img src={livro.imagemCapa} alt={livro.titulo} />
                 </Link>
             </div>
             <div className="livro-card-titulo">
-                {livro.titulo}
+                {livro.titulo.length <= 50 ? livro.titulo : livro.titulo.substr(0, 46) + ' ...'}
             </div>
 
         </div>

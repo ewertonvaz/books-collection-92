@@ -1,7 +1,9 @@
 import ListaLivros from "../components/ListaLivros";
-import livros from '../books.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
+// TODO: Substituir pela busca na API da aplicação
+import livros from '../books.json';
 
 
 function HomePage() {
@@ -59,7 +61,7 @@ function HomePage() {
                 </div>
             </div>
             <footer>
-                <div class="footer col-md-12 text-center">
+                <div className="footer col-md-12 text-center">
                     <hr />
                     <p>Desenvolvido por Ewerton, Priscila, Roberto e Rodrigo. <br /> Turma ENAP WDFT-92/2022</p>
                 </div>
