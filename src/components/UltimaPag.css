@@ -1,0 +1,68 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.react-pdf__Page {
+  display: flex !important;
+  flex-direction: row;
+}
+.react-pdf__Page__canvas {
+  max-width: 350px;
+  max-height: 387px;
+  top: 1rem;
+  left: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 50px;
+  border-radius: 4px;
+  background: #9a80ad;
+}
+.react-pdf__Page__textContent {
+  max-width: 400px;
+  max-height: 400px;
+  text-align: justify;
+  top: 1rem;
+  left: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  color: aliceblue;
+  border-radius: 50px;
+  border-radius: 4px;
+  background: #9a80ad;
+  overflow: scroll;
+}
+.textLayer {
+  color: white;
+}
+.textLayer > span {
+  color: white;
+  gap: 0;
+}
+
+.presentation {
+  max-width: 400px;
+  max-height: 400px;
+  overflow: hidden;
+}
+
+.react-pdf__Page__annotations {
+  max-width: 100px;
+  max-height: 100px;
+  top: 1rem;
+  left: 1rem;
+  right: 90%;
+  padding: 2rem;
+  display: none;
+  gap: 1rem;
+  color: aliceblue;
+  border-radius: 50px;
+  border-radius: 4px;
+  background: #83cad8;
+}
+.buttonc > button {
+  border-radius: 50px;
+  border-radius: 4px;
+  background: #9a80ad;
+  color: aliceblue;
+}
