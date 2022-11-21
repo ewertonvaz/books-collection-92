@@ -52,3 +52,9 @@ body {
   text-overflow: ellipsis;
   font-size: 10pt;
 }
+
+.buttons{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}

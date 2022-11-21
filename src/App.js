@@ -1,3 +1,4 @@
+
 import "./App.css";
 import { Toaster } from "react-hot-toast";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -10,11 +11,13 @@ import DetalhesPage from "./pages/DetalhesPage";
 import NavBar from "./components/NavBar";
 import UltimaPag from "./pages/UltimaPag";
 
+
 function App() {
   return (
     <div className="App">
       <Toaster />
       <NavBar />
+
       <div className="container">
         <Routes>
           <Route path="/" element={<HomePage />} />
