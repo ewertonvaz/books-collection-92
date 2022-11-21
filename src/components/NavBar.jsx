@@ -1,19 +1,24 @@
-import {Navbar, Container} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+
+import { Link } from "react-router-dom"
+import logo from '../assets/books.png'
+
 
 function NavBar() {
-    return ( <div>
-      <Navbar bg="dark" variant="dark">
-        <Container>
-        <Link to="/" style={{textDecoration:'none'}}>
-          <Navbar.Brand as="div" >
-            <h2>Books Collection 92</h2> 
-          </Navbar.Brand>
-          </Link>
-        </Container>
-      </Navbar>
-      <Navbar fixed='bottom'/>
-    </div> );
+
+    return (
+        <div className="header">
+
+            <nav className="navbar navbar-dark bg-dark text-white p-3 fixed-top">
+                <Link to="/">
+                    <img width={40} src={logo} alt="icone home" />
+                </Link>
+                <h4>Projeto 2 | Books Collection</h4>
+            </nav >
+
+        </div >
+
+    );
+
 }
 
 export default NavBar;

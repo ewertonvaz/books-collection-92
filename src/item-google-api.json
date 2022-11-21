@@ -1,0 +1,76 @@
+{
+    "kind": "books#volume",
+    "id": "_l5BCwAAQBAJ",
+    "etag": "rjYk3zflhHs",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/_l5BCwAAQBAJ",
+    "volumeInfo": {
+        "title": "Mr. Mercedes",
+        "subtitle": "A Novel",
+        "authors": [
+            "Stephen King"
+        ],
+        "publisher": "Simon and Schuster",
+        "publishedDate": "2015-12-29",
+        "description": "Originally published: New York: Scribner, 2014.",
+        "industryIdentifiers": [
+            {
+                "type": "ISBN_13",
+                "identifier": "9781501125607"
+            },
+            {
+                "type": "ISBN_10",
+                "identifier": "1501125605"
+            }
+        ],
+        "readingModes": {
+            "text": false,
+            "image": false
+        },
+        "pageCount": 560,
+        "printType": "BOOK",
+        "categories": [
+            "Fiction"
+        ],
+        "averageRating": 3.5,
+        "ratingsCount": 3630,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.4.1.0.preview.0",
+        "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+        },
+        "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=_l5BCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=_l5BCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.br/books?id=_l5BCwAAQBAJ&printsec=frontcover&dq=mr+mercedes&hl=&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.com.br/books?id=_l5BCwAAQBAJ&dq=mr+mercedes&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Mr_Mercedes.html?hl=&id=_l5BCwAAQBAJ"
+    },
+    "saleInfo": {
+        "country": "BR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+    },
+    "accessInfo": {
+        "country": "BR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+        "epub": {
+            "isAvailable": false
+        },
+        "pdf": {
+            "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=_l5BCwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+    },
+    "searchInfo": {
+        "textSnippet": "Originally published: New York: Scribner, 2014."
+    }
+}
