@@ -11,22 +11,6 @@ function DetalhesPage() {
 
     const progressoLeitura = livro.qtdPaginas ? Math.floor(livro.ultPagLida / livro.qtdPaginas * 100) : 0;
 
-    return (
-
-        <div className="row">
-
-            <div className="col-5 p-3">
-
-                <div className="text-center pb-5">
-                    <img src={livro.imagemCapa} alt={livro.titulo} />
-                </div>
-
-                <div className="text-center">
-                    <Link to={`/livro/${livro._id}/editar`} className="btn btn-secondary">Editar livro</Link>
-                </div>
-            </div>
-
-            <div className="col-7 p-3 bg-light">
   return (
     <div className="row" style={{ border: "solid 1px red" }}>
       <div className="col-5 p-3" style={{ border: "solid 1px blue" }}>
