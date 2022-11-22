@@ -29,19 +29,20 @@ function GoogleBookDetails({show, book, hide}) {
 
       const newBook = {
         googleID: book.id,
+        titulo: volumeInfo.title,
+        subtitulo: volumeInfo.subtitle,
         autor: volumeInfo.authors ? volumeInfo.authors[0] : "",
         ranking: 0,
         categoria: volumeInfo.categories ? volumeInfo.categories[0] : "",
         imagemCapa: images[0],
         idioma: volumeInfo.language,
         qtdPaginas: volumeInfo.pageCount,
-        titulo: volumeInfo.title,
-        subtitulo: volumeInfo.subtitle,
         ultPagLida: 0,
         anotacoes: "",
-        dtInicio: null,
-        dtTermino: null,
-        lido: false,
+        dataInicio: null,
+        dataConclusao: null,
+        tipo: "",
+        caminho: "",
         status: "ler"
       };
       try {
