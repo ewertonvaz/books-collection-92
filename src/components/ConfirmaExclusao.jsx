@@ -33,8 +33,8 @@ function ConfirmaExclusao({book}) {
 
   return (
     <div>
-      <Button variant="outline-danger" onClick={handleShow}>
-        Excluir Livro
+      <Button variant="danger" onClick={handleShow}>
+        Excluir
       </Button>
 
       <Modal show={show} onHide={handleClose}>

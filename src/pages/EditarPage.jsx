@@ -15,7 +15,8 @@ import ConfirmaExclusao from "../components/ConfirmaExclusao";
 
 function EditarPage() {
   const { livroID } = useParams();
-  const [book, setBook] = useState({})
+
+  const [book, setBook] = useState({});
   const [form, setForm] = useState({
     googleID: "",
     autor: "",
@@ -24,14 +25,17 @@ function EditarPage() {
     imagemCapa: "",
     idioma: "",
     qtdPaginas: 0,
-    titulo: "", 
+    titulo: "",
     subtitulo: "",
     ultPagLida: 0,
     anotacoes: "",
-    dtInicio: "",
-    dtTermino: "",
-    lido: false,
+    dataInicio: "",
+    dataConclusao: "",
+    tipo: "",
+    caminho: "",
+    status: "ler",
   });
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchBooks() {
@@ -39,9 +43,12 @@ function EditarPage() {
         const response = await axios.get(
           `https://ironrest.herokuapp.com/books-collection-92/${livroID}`
         );
-        setBook(response.data)
+        setBook(response.data);
         setForm(response.data);
-      } catch (error) {}
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     fetchBooks();
@@ -51,16 +58,17 @@ function EditarPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  function handleChecked(e) {
-    setForm({ ...form, [e.target.name]: e.target.checked });
-  }
+  console.log(form);
+
   async function handleSubmit(e) {
     e.preventDefault();
+    const clone = { ...form };
+    delete clone._id;
 
     try {
-      await axios.post(
-        "https://ironrest.herokuapp.com/books-collection-92",
-        form
+      await axios.put(
+        `https://ironrest.herokuapp.com/books-collection-92/${livroID}`,
+        clone
       );
 
       toast.success("Alterações feitas com sucesso!!");
@@ -69,7 +77,6 @@ function EditarPage() {
       toast.error("As Alterações não foram concluídas");
     }
   }
-  console.log(form);
 
   return (
     <div>
@@ -85,46 +92,17 @@ function EditarPage() {
                 src={form.imagemCapa}
               />
             </Card>
-            <Form>
-              <Form.Check
-                className="my-3"
-                name="lido"
-                onChange={handleChecked}
-                type="checkbox"
-                label="Lido"
-              />
-
+            <div className="buttons">
               <Form.Group>
-                <FloatingLabel
-                  controlId="floatingInput"
-                  label="Leitura iniciada em:"
-                  className="mb-3"
+                <Button
+                  variant="secondary"
+                  onClick={handleSubmit}
                 >
-                  <Form.Control
-                    type="date"
-                    name="dtInicio"
-                    value={form.dtInicio}
-                    onChange={handleChange}
-                    // placeholder="Insíra o título do Livro"
-                  />
-                </FloatingLabel>
+                  Salvar
+                </Button>{" "}
               </Form.Group>
-
-              <Form.Group>
-                <FloatingLabel
-                  controlId="floatingInput"
-                  label="Leitura terminada em:"
-                  className="mb-3"
-                >
-                  <Form.Control
-                    type="date"
-                    name="dtTermino"
-                    value={form.dtTermino}
-                    onChange={handleChange}
-                  />
-                </FloatingLabel>
-              </Form.Group>
-            </Form>
+              <ConfirmaExclusao book={book} />
+            </div>
           </Col>
 
           <Col>
@@ -209,16 +187,62 @@ function EditarPage() {
                 </FloatingLabel>
               </Form.Group>
 
-              <div className="buttons">
-                <Form.Group>
-                  <Button
-                    variant="outline-secondary"
-                    onClick={handleSubmit}
-                  >
-                    Salvar Alterações
-                  </Button>{" "}
-                </Form.Group>
-                <ConfirmaExclusao book={book}/>
+              <Form.Group>
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Tipo"
+                  className="mb-3"
+                >
+                  {!isLoading && (
+                    <Form.Select
+                      name="tipo"
+                      defaultValue={form.tipo}
+                      onChange={handleChange}
+                    >
+                      <option>Selecione o tipo de Extensão do arquivo</option>
+                      <option value="PDF">PDF</option>
+                      <option value="ePub">ePub</option>
+                      <option value="Fisico">Fisico</option>
+                    </Form.Select>
+                  )}
+                </FloatingLabel>
+              </Form.Group>
+
+              <div>
+                <Form className="dataLeitura">
+                  <Form.Group>
+                    <FloatingLabel
+                      controlId="floatingInput"
+                      label="Leitura iniciada em:"
+                      className="mb-3"
+                    >
+                      <Form.Control
+                        type="date"
+                        style={{ width: "200px" }}
+                        name="dataInicio"
+                        value={form.dataInicio}
+                        onChange={handleChange}
+                        // placeholder="Insíra o título do Livro"
+                      />
+                    </FloatingLabel>
+                  </Form.Group>
+
+                  <Form.Group>
+                    <FloatingLabel
+                      controlId="floatingInput"
+                      label="Leitura terminada em:"
+                      className="mb-3"
+                    >
+                      <Form.Control
+                        type="date"
+                        style={{ width: "200px" }}
+                        name="dataConclusao"
+                        value={form.dataConclusao}
+                        onChange={handleChange}
+                      />
+                    </FloatingLabel>
+                  </Form.Group>
+                </Form>
               </div>
             </Form>
           </Col>
@@ -273,6 +297,43 @@ function EditarPage() {
                 </FloatingLabel>
               </Form.Group>
 
+              <Form.Group>
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="URL"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="text"
+                    name="caminho"
+                    value={form.caminho}
+                    onChange={handleChange}
+                    placeholder="Insíra a URL do repositório do Livro"
+                  />
+                </FloatingLabel>
+              </Form.Group>
+
+              <Form.Group>
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Status"
+                  className="mb-3"
+                >
+                  {!isLoading && (
+                    <Form.Select
+                      name="status"
+                      defaultValue={form.status}
+                      onChange={handleChange}
+                    >
+                      <option>Selecione o status de leitura</option>
+                      <option value="lido">Lido</option>
+                      <option value="ler">Quero Ler</option>
+                      <option value="lendo">Lendo</option>
+                    </Form.Select>
+                  )}
+                </FloatingLabel>
+              </Form.Group>
+
               <Form.Group className="mb-3">
                 <FloatingLabel
                   controlId="floatingTextarea2"
@@ -292,15 +353,6 @@ function EditarPage() {
           </Col>
         </Row>
       </Container>
-      <footer>
-        <div className="footer col-md-12 text-center">
-          <hr />
-          <p>
-            Desenvolvido por Ewerton, Priscila, Roberto e Rodrigo. <br /> Turma
-            ENAP WDFT-92/2022
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }
