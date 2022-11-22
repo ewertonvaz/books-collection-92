@@ -1,4 +1,3 @@
-
 import "./App.css";
 import { Toaster } from "react-hot-toast";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,7 +10,6 @@ import DetalhesPage from "./pages/DetalhesPage";
 import NavBar from "./components/NavBar";
 import UltimaPag from "./pages/UltimaPag";
 
-
 function App() {
   return (
     <div className="App">
@@ -20,12 +18,30 @@ function App() {
 
       <div className="container">
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/livro/cadastro" element={<CadastroPage />} />
-          <Route path="/livro/:livroID" element={<DetalhesPage />} />
-          <Route path="/livro/:livroID/editar" element={<EditarPage />} />
-          <Route path="/pesquisar" element={<GoogleBooksPage />} />
-          <Route path="/livro/ultimapag/xx" element={<UltimaPag />} />
+          <Route
+            path="/"
+            element={<HomePage />}
+          />
+          <Route
+            path="/livro/cadastro"
+            element={<CadastroPage />}
+          />
+          <Route
+            path="/livro/:livroID"
+            element={<DetalhesPage />}
+          />
+          <Route
+            path="/livro/:livroID/editar"
+            element={<EditarPage />}
+          />
+          <Route
+            path="/pesquisar"
+            element={<GoogleBooksPage />}
+          />
+          <Route
+            path="/livro/ultimapag/xx"
+            element={<UltimaPag />}
+          />
         </Routes>
       </div>
     </div>
