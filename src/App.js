@@ -1,33 +1,55 @@
-
-import "./App.css";
 import { Toaster } from "react-hot-toast";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "./pages/HomePage";
 import CadastroPage from "./pages/CadastroPage";
 import EditarPage from "./pages/EditarPage";
 import GoogleBooksPage from "./pages/GoogleBooksPage";
 import DetalhesPage from "./pages/DetalhesPage";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 import UltimaPag from "./pages/UltimaPag";
-
+import Leitura from "./pages/Leitura";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App d-flex flex-column h-100">
       <Toaster />
       <NavBar />
 
-      <div className="container">
+      <div className="container pb-4">
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/livro/cadastro" element={<CadastroPage />} />
-          <Route path="/livro/:livroID" element={<DetalhesPage />} />
-          <Route path="/livro/:livroID/editar" element={<EditarPage />} />
-          <Route path="/pesquisar" element={<GoogleBooksPage />} />
-          <Route path="/livro/ultimapag/xx" element={<UltimaPag />} />
+          <Route
+            path="/"
+            element={<HomePage />}
+          />
+          <Route
+            path="/livro/cadastro"
+            element={<CadastroPage />}
+          />
+          <Route
+            path="/livro/:livroID"
+            element={<DetalhesPage />}
+          />
+          <Route
+            path="/livro/:livroID/editar"
+            element={<EditarPage />}
+          />
+          <Route
+            path="/pesquisar"
+            element={<GoogleBooksPage />}
+          />
+
+          <Route
+            path="/livro/:livroID/leitura"
+            element={<Leitura ultPagLida={"ultPagLida"} />}
+          />
         </Routes>
       </div>
+
+      <Footer />
+
     </div>
   );
 }

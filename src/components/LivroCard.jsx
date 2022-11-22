@@ -5,9 +5,9 @@ function LivroCard({ livro }) {
     return (
 
         <div className="livro-card">
-            <div>
+            <div className="livro-card-imagem">
                 <Link to={`/livro/${livro._id}`}>
-                    <img src={livro.imagemCapa} alt={livro.titulo} />
+                    <img className="img-fluid" src={livro.imagemCapa} alt={livro.titulo} />
                 </Link>
             </div>
             <div className="livro-card-titulo">

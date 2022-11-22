@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
-import "./../components/UltimaPag.css";
+import "./../components/BookPdf.css";
+import pdf from "./../assets/pdfs/auto.pdf";
 
 /*ESSA VARIÁVEL DE URL USA UM OUTRO LINK ANTES PARA
-EVITAR UM ERRO DE CORS */
+EVITAR UM ERRO DE CORS 
 const urllivro =
   "https://repositorio.usp.br/directbitstream/4cd7f9b7-7144-40f4-bfd0-7a1d9a6bd748/nd_72.pdf";
 const url = `https://cors-anywhere.herokuapp.com/${urllivro}`;
-
-function UltimaPag() {
+*/
+function BookPdf() {
   /* PARA USAR A BIBLIOTECA PRECISA DE UM pdf.worker.js,
   IMPORTARMOS ELE DE OUTRO SITE PARA EVITAR PROBLEMAS NA BUILD E DEPLOY */
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -24,7 +25,6 @@ function UltimaPag() {
 
   /*Quando o documento é carregado com sucesso*/
   function onDocumentLoadSuccess({ numPages, options }) {
-    console.log(options);
     setNumPages(numPages);
     setPageNumber(1);
   }
@@ -40,11 +40,10 @@ function UltimaPag() {
   function proxPagina() {
     mudarPagina(1);
   }
-  console.log(numPages);
   return (
     <>
       <div className="main">
-        <Document file={url} onLoadSuccess={onDocumentLoadSuccess}>
+        <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
           <Page pageNumber={pageNumber} />
         </Document>
         <div>
@@ -73,4 +72,4 @@ function UltimaPag() {
     </>
   );
 }
-export default UltimaPag;
+export default BookPdf;
