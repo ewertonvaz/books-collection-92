@@ -24,6 +24,13 @@ function DetalhesPage() {
 
                 <div className="text-center">
                     <Link to={`/livro/${livro._id}/editar`} className="btn btn-secondary">Editar livro</Link>
+                    {"   "}
+                  <Link
+                    to={`/livro/${livro._id}/leitura`}
+                    className="btn btn-secondary"
+                  >
+                    Ler
+                  </Link>
                 </div>
             </div>
 
