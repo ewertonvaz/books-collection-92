@@ -4,7 +4,6 @@ function GoTopButtom({color}) {
     const currColor = color ? color : "currentColor";
 
     function goTop(){
-        console.log('cliquei top');
         window.location.href = "#top";
     }
 
