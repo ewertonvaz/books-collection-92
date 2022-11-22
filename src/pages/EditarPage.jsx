@@ -300,7 +300,7 @@ function EditarPage() {
               <Form.Group>
                 <FloatingLabel
                   controlId="floatingInput"
-                  label="URL"
+                  label="URL/ Local do Arquivo"
                   className="mb-3"
                 >
                   <Form.Control
