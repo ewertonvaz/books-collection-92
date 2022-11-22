@@ -9,7 +9,7 @@ import GoogleBooksPage from "./pages/GoogleBooksPage";
 import DetalhesPage from "./pages/DetalhesPage";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import UltimaPag from "./pages/UltimaPag";
+import UltimaPag from "./pages/Leitura";
 import Leitura from "./pages/Leitura";
 
 function App() {
