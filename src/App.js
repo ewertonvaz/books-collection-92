@@ -9,6 +9,7 @@ import GoogleBooksPage from "./pages/GoogleBooksPage";
 import DetalhesPage from "./pages/DetalhesPage";
 import NavBar from "./components/NavBar";
 import UltimaPag from "./pages/UltimaPag";
+import Leitura from "./pages/Leitura";
 
 function App() {
   return (
@@ -38,9 +39,10 @@ function App() {
             path="/pesquisar"
             element={<GoogleBooksPage />}
           />
+
           <Route
-            path="/livro/ultimapag/xx"
-            element={<UltimaPag />}
+            path="/livro/:livroID/leitura"
+            element={<Leitura ultPagLida={"ultPagLida"} />}
           />
         </Routes>
       </div>
