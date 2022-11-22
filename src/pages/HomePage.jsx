@@ -104,7 +104,7 @@ function HomePage() {
                             <div className="text-end">
                                 <Link className="btn btn-outline-secondary btn-sm" to="/livro/cadastro">Novo livro
                                 </Link>
-                                <Link className="btn btn-outline-primary btn-sm ms-3" to="/pesquisar">Google Livros
+                                <Link className="btn btn-outline-primary btn-sm ms-3" to="/livro/google">Google Livros
                                 </Link>
                             </div>
                         </form>

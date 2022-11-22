@@ -36,7 +36,7 @@ function App() {
             element={<EditarPage />}
           />
           <Route
-            path="/pesquisar"
+            path="/livro/google"
             element={<GoogleBooksPage />}
           />
 
