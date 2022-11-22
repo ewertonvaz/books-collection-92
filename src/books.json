@@ -5,14 +5,16 @@
         "autor": "Encontra-se à direita da imagem do item",
         "ranking": 0,
         "categoria": "Suspense",
-        "imagemCapa": "https://images-na.ssl-images-amazon.com/images/I/91MowzF+WZL._AC_UL381_SR381,381_.jpg",
+        "imagemCapa": "https://static.minutemediacdn.com/assets/production/icons/teams/h50/flamengo-878e3d9897b49ff7ab135e391bd2258e.png",
         "idioma": "aaaaa",
         "qtdPaginas": 100,
-        "titulo": "Abaixo do preço do item. Você saberá se é uma engrenagem, chapéu, decalque, etc.",
+        "titulo": "(lido) Abaixo do preço do item. Você saberá se é uma engrenagem, chapéu, decalque, etc.",
         "subtitulo": "Encontra-se à direita da imagem do item",
         "ultPagLida": 60,
         "anotacoes": "Encontra-se à direita da imagem do itemEncontra-se à direita da imagem do item, Encontra-se à direita da imagem do itemEncontra-se à direita da imagem do itemEncontra-se à direita da imagem do itemEncontra-se à direita da imagem do item, Encontra-se à direita da imagem do itemEncontra-se à direita da imagem do itemEncontra-se à direita da imagem do itemEncontra-se à direita da imagem do item, Encontra-se à direita da imagem do itemEncontra-se à direita da imagem do item ",
-        "queroLer": false
+        "dataInicio": "11/10/2022",
+        "dataConclusao": "12/11/2022",
+        "status": "lido"
     },
     {
         "_id": "bbbbb",
@@ -23,11 +25,13 @@
         "imagemCapa": "https://images-na.ssl-images-amazon.com/images/I/91MowzF+WZL._AC_UL381_SR381,381_.jpg",
         "idioma": "bbbbb",
         "qtdPaginas": 0,
-        "titulo": "Mistério na Floresta Encantada",
+        "titulo": "(lido) Mistério na Floresta Encantada",
         "subtitulo": "bbbbb",
-        "ultPagLida": 0,
+        "ultPagLida": 200,
         "anotacoes": "bbbbb",
-        "queroLer": false
+        "dataInicio": "11/10/2022",
+        "dataConclusao": "12/11/2022",
+        "status": "lido"
     },
     {
         "_id": "cccccc",
@@ -38,11 +42,13 @@
         "imagemCapa": "https://images-na.ssl-images-amazon.com/images/I/91MowzF+WZL._AC_UL381_SR381,381_.jpg",
         "idioma": "cccccc",
         "qtdPaginas": 0,
-        "titulo": "O homem roeu a roupa",
+        "titulo": "(lendo) O homem roeu a roupa",
         "subtitulo": "cccccc",
         "ultPagLida": 0,
         "anotacoes": "cccccc",
-        "queroLer": false
+         "dataInicio": "11/10/2022",
+        "dataConclusao": "12/11/2022",
+        "status": "lendo"
     },
     {
         "_id": "ddddd",
@@ -53,11 +59,13 @@
         "imagemCapa": "https://images-na.ssl-images-amazon.com/images/I/91MowzF+WZL._AC_UL381_SR381,381_.jpg",
         "idioma": "ddddd",
         "qtdPaginas": 0,
-        "titulo": "100 coisas para fazer antes de morrer.",
+        "titulo": "(ler) 100 coisas para fazer antes de morrer.",
         "subtitulo": "ddddd",
         "ultPagLida": 0,
         "anotacoes": "ddddd",
-        "queroLer": false
+         "dataInicio": "11/10/2022",
+        "dataConclusao": "12/11/2022",
+        "status": "ler"
     },
     {
         "_id": "ddddd1",
@@ -68,12 +76,15 @@
         "imagemCapa": "https://images-na.ssl-images-amazon.com/images/I/91MowzF+WZL._AC_UL381_SR381,381_.jpg",
         "idioma": "ddddd",
         "qtdPaginas": 0,
-        "titulo": "100 coisas para fazer antes de morrer.",
+        "titulo": "(lendo) 100 coisas para fazer antes de morrer.",
         "subtitulo": "ddddd",
         "ultPagLida": 0,
         "anotacoes": "ddddd",
-        "queroLer": false
-    },{
+         "dataInicio": "11/10/2022",
+        "dataConclusao": "12/11/2022",
+        "status": "lendo"
+    },
+    {
         "_id": "ddddd2",
         "googleID": "ddddd",
         "autor": "ddddd",
@@ -82,12 +93,15 @@
         "imagemCapa": "https://images-na.ssl-images-amazon.com/images/I/91MowzF+WZL._AC_UL381_SR381,381_.jpg",
         "idioma": "ddddd",
         "qtdPaginas": 0,
-        "titulo": "100 coisas para fazer antes de morrer.",
+        "titulo": "(lido) 100 coisas para fazer antes de morrer.",
         "subtitulo": "ddddd",
         "ultPagLida": 0,
         "anotacoes": "ddddd",
-        "queroLer": false
-    },{
+         "dataInicio": "11/10/2022",
+        "dataConclusao": "12/11/2022",
+        "status": "lido"
+    },
+    {
         "_id": "ddddd3",
         "googleID": "ddddd",
         "autor": "ddddd",
@@ -96,12 +110,15 @@
         "imagemCapa": "https://images-na.ssl-images-amazon.com/images/I/91MowzF+WZL._AC_UL381_SR381,381_.jpg",
         "idioma": "ddddd",
         "qtdPaginas": 0,
-        "titulo": "100 coisas para fazer antes de morrer.",
+        "titulo": "(lido) 100 coisas para fazer antes de morrer.",
         "subtitulo": "ddddd",
         "ultPagLida": 0,
         "anotacoes": "ddddd",
-        "queroLer": false
-    },{
+         "dataInicio": "11/10/2022",
+        "dataConclusao": "12/11/2022",
+        "status": "lido"
+    },
+    {
         "_id": "ddddd4",
         "googleID": "ddddd",
         "autor": "ddddd",
@@ -110,10 +127,12 @@
         "imagemCapa": "https://images-na.ssl-images-amazon.com/images/I/91MowzF+WZL._AC_UL381_SR381,381_.jpg",
         "idioma": "ddddd",
         "qtdPaginas": 0,
-        "titulo": "100 coisas para fazer antes de morrer.",
+        "titulo": "(ler) 100 coisas para fazer antes de morrer.",
         "subtitulo": "ddddd",
         "ultPagLida": 0,
         "anotacoes": "ddddd",
-        "queroLer": false
+         "dataInicio": "11/10/2022",
+        "dataConclusao": "12/11/2022",
+        "status": "ler"
     }
 ]
