@@ -1,7 +1,7 @@
 import styles from "./GoogleBookCard.module.css";
 import { Card, Button } from 'react-bootstrap';
 
-function ShowBook({book, onClick}) {
+function GoogleBookCard({book, onClick}) {
     const { volumeInfo } = book;
     const images = volumeInfo.imageLinks ? Object.values(volumeInfo.imageLinks) : [];
     return ( 
@@ -16,4 +16,4 @@ function ShowBook({book, onClick}) {
     );
 }
 
-export default ShowBook;
+export default GoogleBookCard;
