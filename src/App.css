@@ -1,16 +1,24 @@
+html {
+  height: 100%!important;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+    height: 100%!important;
+    display: flex!important;
+    flex-direction: column!important;
 }
 
-.header {
-  height: 100px;
+#root {
+  height: 100%!important;
+  margin-top: 90px;
 }
 
 .footer {
-  font-size: 10pt;
+  font-size: 9pt;
   margin-top: 50px;
   padding: 5px;
 }
@@ -18,19 +26,12 @@ body {
 .livro-lista {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
-.livros-lista-container {
-  border: 1px solid gray;
-  border-radius: 5px;
-  margin-top: 20px;
-  padding-top: 10px;
-}
 
 .livro-card {
-  width: 200px;
-  height: 250px;
+  width: 150px;
+  height: 200px;
   text-align: center;
   padding: 10px;
   border: solid 1px black;
@@ -40,20 +41,28 @@ body {
   background-color: white;
 }
 
-.livro-card img {
-  width: 100%;
+
+.livro-card-imagem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 140px;
+}
+
+.livro-card-imagem img {
+  max-height: 140px;
 }
 
 .livro-card-titulo {
   border-top: 1px solid gray;
-  padding-top: 2px;
+  padding-top: 6px;
   margin-top: 6px;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 10pt;
+  font-size: 8pt;
 }
 
-.buttons{
+.buttons {
   display: flex;
   justify-content: space-around;
   margin-bottom: 30px;
