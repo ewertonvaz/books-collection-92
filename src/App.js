@@ -8,6 +8,7 @@ import EditarPage from "./pages/EditarPage";
 import GoogleBooksPage from "./pages/GoogleBooksPage";
 import DetalhesPage from "./pages/DetalhesPage";
 import NavBar from "./components/NavBar";
+import UltimaPag from "./pages/UltimaPag";
 import Leitura from "./pages/Leitura";
 
 function App() {
@@ -18,11 +19,27 @@ function App() {
 
       <div className="container">
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/livro/cadastro" element={<CadastroPage />} />
-          <Route path="/livro/:livroID" element={<DetalhesPage />} />
-          <Route path="/livro/:livroID/editar" element={<EditarPage />} />
-          <Route path="/pesquisar" element={<GoogleBooksPage />} />
+          <Route
+            path="/"
+            element={<HomePage />}
+          />
+          <Route
+            path="/livro/cadastro"
+            element={<CadastroPage />}
+          />
+          <Route
+            path="/livro/:livroID"
+            element={<DetalhesPage />}
+          />
+          <Route
+            path="/livro/:livroID/editar"
+            element={<EditarPage />}
+          />
+          <Route
+            path="/pesquisar"
+            element={<GoogleBooksPage />}
+          />
+
           <Route
             path="/livro/:livroID/leitura"
             element={<Leitura ultPagLida={"ultPagLida"} />}

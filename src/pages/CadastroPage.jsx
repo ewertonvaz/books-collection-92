@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Form, Button, Row,  Col, Container,Card, FloatingLabel} from "react-bootstrap";
 import {Link} from 'react-router-dom'
-import image from "../assets/pngwing.com.png";
 import axios from 'axios'
 import toast from 'react-hot-toast'
 
 
 
+
 function CadastroPage() {
-  const [isChecked, setIsChecked]=useState(false)
+  
   const [form, setForm] = useState(
     {
       googleID: "",
@@ -22,7 +22,9 @@ function CadastroPage() {
       subtitulo: "",
       ultPagLida: 0,
       anotacoes: "",
-      queroLer: {isChecked},
+      dtInicio: "",
+      dtTermino: "",
+      lido:false,
     },
   );
 
@@ -52,6 +54,8 @@ function CadastroPage() {
             subtitulo: "",
             ultPagLida: "",
             anotacoes: "",
+            dtInicio: "",
+            dtTermino: "",
             lido: false,
         })
 
@@ -66,20 +70,55 @@ console.log(form)
 
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>Página de Cadastro</h1>
+      <h1 style={{ textAlign: "start" }}>Página de Cadastro</h1>
       <Container>
           <Row>
-            <Col>
-              <Card style={{ width: "18rem" }}>
+            <Col className="col-3">
+              <Card style={{ width: "14rem", height:"20rem", marginTop:"30px" }}>
                 <Card.Img
                   variant="top"
-                  src={image}/>
+                  src={form.imagemCapa}/>
               </Card>
-            </Col>
+              <Form>
+                <Form.Check className="my-3" name="lido"   
+                onChange={handleChecked} type="checkbox" label='Lido'/>    
+
+                <Form.Group>
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Leitura iniciada em:"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="date"
+                    name = "dtInicio"
+                    value = {form.dtInicio}
+                    onChange = {handleChange}
+                    // placeholder="Insíra o título do Livro"
+                  />
+                </FloatingLabel>
+              </Form.Group>   
+
+              <Form.Group>
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Leitura terminada em:"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="date"
+                    name = "dtTermino"
+                    value = {form.dtTermino}
+                    onChange = {handleChange}
+                  />
+                </FloatingLabel>
+              </Form.Group>                  
+            </Form>
+          </Col>
             
 
-            <Col className="col-7">
-            <Form >
+            <Col>
+            <Form>
               <Form.Group>
                 <FloatingLabel
                   controlId="floatingInput"
@@ -160,6 +199,24 @@ console.log(form)
                 </FloatingLabel>
               </Form.Group>
 
+                            
+              <div className="buttons">
+              <Form.Group>
+              <Button variant="outline-secondary" onClick={handleSubmit}>Salvar</Button>{' '}
+              </Form.Group>
+              <Form.Group>
+              <Link to="/">
+              <Button variant="outline-secondary">Voltar</Button>{' '}
+              </Link>
+              
+              </Form.Group>
+              </div>
+              
+              </Form>
+            </Col>
+
+            <Col className="col">
+              <Form>
               <Form.Group>
               <FloatingLabel
                   controlId="floatingInput"
@@ -192,6 +249,22 @@ console.log(form)
                 </FloatingLabel>
               </Form.Group>
 
+              <Form.Group>
+              <FloatingLabel
+                  controlId="floatingInput"
+                  label="Capa do Livro"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="text"
+                    name = "imagemCapa"
+                    value = {form.imagemCapa}
+                    onChange = {handleChange}
+                    placeholder="Insíra a URL da capa do Livro"
+                  />
+                </FloatingLabel>
+              </Form.Group>
+
               <Form.Group className="mb-3">
                 <FloatingLabel
                   controlId="floatingTextarea2"
@@ -207,34 +280,20 @@ console.log(form)
                   />
                 </FloatingLabel>
               </Form.Group>
-              <div className="buttons">
-              <Form.Group>
-              <Button variant="outline-success" onClick={handleSubmit}>Salvar</Button>{' '}
-              </Form.Group>
-              <Form.Group>
-              <Link to="/">
-              <Button variant="outline-danger">Cancelar</Button>{' '}
-              </Link>
-              
-              </Form.Group>
-              </div>
-              
               </Form>
+
             </Col>
 
-            <Col className="col-2">
-                <Form>
-                <Form.Check  name="lido"   
-                onChange={handleChecked} type="checkbox" label='Lido'/>               
-                </Form>
-             
-            </Col>
+          
           </Row>
         
       </Container>
       <footer>
-
-      </footer>
+                <div className="footer col-md-12 text-center">
+                    <hr />
+                    <p>Desenvolvido por Ewerton, Priscila, Roberto e Rodrigo. <br /> Turma ENAP WDFT-92/2022</p>
+                </div>
+            </footer>
     </div>
   );
 }
