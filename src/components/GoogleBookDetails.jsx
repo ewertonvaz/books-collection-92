@@ -40,7 +40,9 @@ function GoogleBookDetails({show, book, hide}) {
         ultPagLida: 0,
         anotacoes: "",
         dataInicio: null,
-        dataTermino: null,
+        dataConclusao: null,
+        tipo: "",
+        caminho: "",
         status: "ler"
       };
       try {
