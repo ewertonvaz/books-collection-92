@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import LivroCard from "../components/LivroCard";
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 // TODO: Substituir pela busca na API da aplicação
 import livrosJSON from '../books.json';
