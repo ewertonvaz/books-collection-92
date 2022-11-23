@@ -1,16 +1,36 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-
-// TODO: Substituir pela busca na API da aplicação
-import livros from '../books.json';
 
 function DetalhesPage() {
 
     const { livroID } = useParams();
 
-    // TODO: Substituir pela busca na API da aplicação
-    const livro = livros.find((livro) => livro._id === livroID);
+    const [livro, setLivro] = useState({});
 
-    const progressoLeitura = livro.qtdPaginas ? Math.floor(livro.ultPagLida / livro.qtdPaginas * 100) : 0;
+    const [progressoLeitura, setProgressoLeitura] = useState(0);
+
+
+    useEffect(() => {
+
+        async function fetchLivro() {
+
+            const response = await axios.get(
+                `https://ironrest.herokuapp.com/books-collection-92/${livroID}`
+            );
+
+            const livroApi = response.data;
+
+            setLivro(livroApi);
+
+            setProgressoLeitura(livroApi.qtdPaginas ? Math.floor(livroApi.ultPagLida / livroApi.qtdPaginas * 100) : 0);
+
+        }
+
+        fetchLivro();
+
+    }, [livroID]);
+
 
     return (
 
@@ -25,12 +45,12 @@ function DetalhesPage() {
                 <div className="text-center">
                     <Link to={`/livro/${livro._id}/editar`} className="btn btn-secondary">Editar livro</Link>
                     {"   "}
-                  <Link
-                    to={`/livro/${livro._id}/leitura`}
-                    className="btn btn-secondary"
-                  >
-                    Ler
-                  </Link>
+                    <Link
+                        to={`/livro/${livro._id}/leitura`}
+                        className="btn btn-secondary"
+                    >
+                        Ler
+                    </Link>
                 </div>
             </div>
 
