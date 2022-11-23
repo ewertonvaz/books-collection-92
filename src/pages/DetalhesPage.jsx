@@ -1,97 +1,40 @@
-
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 function DetalhesPage() {
   const { livroID } = useParams();
 
-  // TODO: Substituir pela busca na API da aplicação
-  const livro = livros.find((livro) => livro._id === livroID);
+  const [livro, setLivro] = useState({});
 
+  const [progressoLeitura, setProgressoLeitura] = useState(0);
 
-    const [livro, setLivro] = useState({});
+  useEffect(() => {
+    async function fetchLivro() {
+      const response = await axios.get(
+        `https://ironrest.herokuapp.com/books-collection-92/${livroID}`
+      );
 
-    const [progressoLeitura, setProgressoLeitura] = useState(0);
+      const livroApi = response.data;
 
+      setLivro(livroApi);
 
-    useEffect(() => {
+      setProgressoLeitura(
+        livroApi.qtdPaginas
+          ? Math.floor((livroApi.ultPagLida / livroApi.qtdPaginas) * 100)
+          : 0
+      );
+    }
 
-        async function fetchLivro() {
+    fetchLivro();
+  }, [livroID]);
 
-            const response = await axios.get(
-                `https://ironrest.herokuapp.com/books-collection-92/${livroID}`
-            );
-
-            const livroApi = response.data;
-
-            setLivro(livroApi);
-
-            setProgressoLeitura(livroApi.qtdPaginas ? Math.floor(livroApi.ultPagLida / livroApi.qtdPaginas * 100) : 0);
-
-        }
-
-        fetchLivro();
-
-    }, [livroID]);
-
-
-    return (
-
-        <div className="row">
-
-            <div className="col-5 p-3">
-
-                <div className="text-center pb-5">
-                    <img src={livro.imagemCapa} alt={livro.titulo} />
-                </div>
-
-                <div className="text-center">
-                    <Link to={`/livro/${livro._id}/editar`} className="btn btn-secondary">Editar livro</Link>
-                    {"   "}
-                    <Link
-                        to={`/livro/${livro._id}/leitura`}
-                        className="btn btn-secondary"
-                    >
-                        Ler
-                    </Link>
-                </div>
-            </div>
-
-            <div className="col-7 p-3 bg-light">
-
-                <div className="row mb-3">
-                    <div className="col">
-                        <div className="fw-bold">Título:</div>
-                        <p className="text-muted">{livro.titulo}</p>
-                    </div>
-                </div>
-
-                <div className="row mb-3">
-                    <div className="col">
-                        <div className="fw-bold">Subtítulo:</div>
-                        <p className="text-muted"> {livro.subtitulo ? livro.subtitulo : '-'}</p>
-                    </div>
-                    <div className="col">
-                        <div className="fw-bold">Autor:</div>
-                        <p className="text-muted"> {livro.autor}</p>
-                    </div>
-                </div>
-
-                <div className="row mb-3">
-                    <div className="col">
-                        <div className="fw-bold">Categoria:</div>
-                        <p className="text-muted"> {livro.categoria}</p>
-                    </div>
-                    <div className="col">
-                        <div className="fw-bold">Idioma:</div>
-                        <p className="text-muted"> {livro.idioma}</p>
-                    </div>
-                    <div className="col">
-                        <div className="fw-bold">Ranking:</div>
-                        <p className="text-muted"> {livro.ranking}</p>
-                    </div>
-                </div>
+  return (
+    <div className="row">
+      <div className="col-5 p-3">
+        <div className="text-center pb-5">
+          <img src={livro.imagemCapa} alt={livro.titulo} />
+        </div>
 
         <div className="text-center">
           <Link to={`/livro/${livro._id}/editar`} className="btn btn-secondary">
@@ -99,7 +42,7 @@ function DetalhesPage() {
           </Link>
           {"   "}
           <Link
-            to={`/livro/${livro._id}/leitura`}
+            to={`/livro/leitura/${livro._id}`}
             className="btn btn-secondary"
           >
             Ler
