@@ -5,12 +5,13 @@ import {
   Row,
   Col,
   Container,
-  Card,
   FloatingLabel,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import image from "../assets/placeholder-book.jpg"
+
 
 function CadastroPage() {
   const [form, setForm] = useState({
@@ -74,18 +75,18 @@ function CadastroPage() {
 
   return (
     <div>
-      <h1 style={{ textAlign: "start" }}>Página de Cadastro</h1>
+      <h1 style={{ textAlign: "start" }}>Cadastrar Livro</h1>
       <Container>
         <Row>
           <Col className="col-3">
-            <Card
-              style={{ width: "14rem", height: "20rem", marginTop: "30px" }}
-            >
-              <Card.Img
+            
+              <img
                 variant="top"
-                src={form.imagemCapa}
+                style={{ width: "14rem", height: "20rem", marginTop: "30px", border: "1px solid #ddd", borderRadius:"5px" }}
+                src={form.imagemCapa? form.imagemCapa : image}
+                alt="capa do livro"
               />
-            </Card>
+            
             <div className="buttons">
               <Form.Group>
                 <Button
@@ -169,6 +170,21 @@ function CadastroPage() {
                 </FloatingLabel>
               </Form.Group>
 
+
+              <FloatingLabel
+                  controlId="floatingInput"
+                  label="Última Página Lida"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="number"
+                    name="ultPagLida"
+                    value={form.ultPagLida}
+                    onChange={handleChange}
+                    placeholder="Insíra o número de páginas do Livro"
+                  />
+                </FloatingLabel>
+
               <Form.Group>
                 <FloatingLabel
                   controlId="floatingInput"
@@ -185,24 +201,7 @@ function CadastroPage() {
                 </FloatingLabel>
               </Form.Group>
 
-              <Form.Group>
-                <FloatingLabel
-                  controlId="floatingInput"
-                  label="Tipo"
-                  className="mb-3"
-                >
-                  <Form.Select
-                    name="tipo"
-                    
-                    onChange={handleChange}
-                  >
-                    <option>Selecione o tipo de Extensão do arquivo</option>
-                    <option value="pdf">PDF</option>
-                    <option value="epub">e-Pub</option>
-                    <option value="físico">Físico</option>
-                  </Form.Select>
-                </FloatingLabel>
-              </Form.Group>
+              
 
               <div>
                 <Form className="dataLeitura">
@@ -261,6 +260,26 @@ function CadastroPage() {
                 </FloatingLabel>
               </Form.Group>
 
+
+              <Form.Group>
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Tipo"
+                  className="mb-3"
+                >
+                  <Form.Select
+                    name="tipo"
+                    
+                    onChange={handleChange}
+                  >
+                    <option>Selecione o tipo de Extensão do arquivo</option>
+                    <option value="pdf">PDF</option>
+                    <option value="epub">e-Pub</option>
+                    <option value="físico">Físico</option>
+                  </Form.Select>
+                </FloatingLabel>
+              </Form.Group>
+
               <Form.Group>
                 <FloatingLabel
                   controlId="floatingInput"
@@ -286,7 +305,9 @@ function CadastroPage() {
                   <Form.Control
                     type="text"
                     name="imagemCapa"
-                    value={form.imagemCapa}
+                    value={
+                      form.imagemCapa 
+                      }
                     onChange={handleChange}
                     placeholder="Insíra a URL da capa do Livro"
                   />
