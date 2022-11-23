@@ -19,36 +19,16 @@ function App() {
 
       <div className="container pb-4">
         <Routes>
-          <Route
-            path="/"
-            element={<HomePage />}
-          />
-          <Route
-            path="/livro/cadastro"
-            element={<CadastroPage />}
-          />
-          <Route
-            path="/livro/:livroID"
-            element={<DetalhesPage />}
-          />
-          <Route
-            path="/livro/:livroID/editar"
-            element={<EditarPage />}
-          />
-          <Route
-            path="/livro/google"
-            element={<GoogleBooksPage />}
-          />
-
-          <Route
-            path="/livro/:livroID/leitura"
-            element={<Leitura ultPagLida={"ultPagLida"} />}
-          />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/livro/cadastro" element={<CadastroPage />} />
+          <Route path="/livro/:livroID" element={<DetalhesPage />} />
+          <Route path="/livro/:livroID/editar" element={<EditarPage />} />
+          <Route path="/livro/google" element={<GoogleBooksPage />} />
+          <Route path="/livro/leitura/:livroID" element={<Leitura />} />
         </Routes>
       </div>
 
       <Footer />
-
     </div>
   );
 }
