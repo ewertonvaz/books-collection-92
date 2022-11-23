@@ -9,14 +9,14 @@ const urllivro =
   "https://repositorio.usp.br/directbitstream/4cd7f9b7-7144-40f4-bfd0-7a1d9a6bd748/nd_72.pdf";
 const url = `https://cors-anywhere.herokuapp.com/${urllivro}`;
 */
-function BookPdf() {
+function BookPdf({ ultPagLida }) {
   /* PARA USAR A BIBLIOTECA PRECISA DE UM pdf.worker.js,
   IMPORTARMOS ELE DE OUTRO SITE PARA EVITAR PROBLEMAS NA BUILD E DEPLOY */
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
-
+  console.log(parseInt(ultPagLida));
   /* EVITAR CLIQUE COM O BOTÃO DIREITO NA TELA
   document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
@@ -26,7 +26,7 @@ function BookPdf() {
   /*Quando o documento é carregado com sucesso*/
   function onDocumentLoadSuccess({ numPages, options }) {
     setNumPages(numPages);
-    setPageNumber(1);
+    setPageNumber(parseInt(ultPagLida));
   }
 
   function mudarPagina(offset) {
