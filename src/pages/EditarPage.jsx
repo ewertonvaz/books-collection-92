@@ -52,7 +52,7 @@ function EditarPage() {
     }
 
     fetchBooks();
-  }, []);
+  }, [livroID]);
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -93,21 +93,21 @@ function EditarPage() {
               />
             </Card>
             <div className="buttons">
-              <Form.Group>
+              
                 <Button
                   variant="secondary"
                   onClick={handleSubmit}
                 >
                   Salvar
                 </Button>{" "}
-              </Form.Group>
+              
               <ConfirmaExclusao book={book} />
             </div>
           </Col>
 
           <Col>
             <Form>
-              <Form.Group>
+             
                 <FloatingLabel
                   controlId="floatingInput"
                   label="Título"
@@ -121,9 +121,9 @@ function EditarPage() {
                     placeholder="Insíra o título do Livro"
                   />
                 </FloatingLabel>
-              </Form.Group>
+              
 
-              <Form.Group>
+              
                 <FloatingLabel
                   controlId="floatingInput"
                   label="Subtítulo"
@@ -137,9 +137,9 @@ function EditarPage() {
                     placeholder="Insíra o subtítulo do Livro"
                   />
                 </FloatingLabel>
-              </Form.Group>
+              
 
-              <Form.Group>
+              
                 <FloatingLabel
                   controlId="floatingInput"
                   label="Autor"
@@ -153,9 +153,9 @@ function EditarPage() {
                     placeholder="Insíra o nome do autor do Livro"
                   />
                 </FloatingLabel>
-              </Form.Group>
+              
 
-              <Form.Group>
+              
                 <FloatingLabel
                   controlId="floatingInput"
                   label="Número de Páginas"
@@ -169,9 +169,9 @@ function EditarPage() {
                     placeholder="Insíra o número de páginas do Livro"
                   />
                 </FloatingLabel>
-              </Form.Group>
+              
 
-              <Form.Group>
+              
                 <FloatingLabel
                   controlId="floatingInput"
                   label="Categoria"
@@ -185,9 +185,9 @@ function EditarPage() {
                     placeholder="Insíra o gênero do Livro"
                   />
                 </FloatingLabel>
-              </Form.Group>
+              
 
-              <Form.Group>
+              
                 <FloatingLabel
                   controlId="floatingInput"
                   label="Tipo"
@@ -206,11 +206,12 @@ function EditarPage() {
                     </Form.Select>
                   )}
                 </FloatingLabel>
-              </Form.Group>
+              
 
+            </Form>
               <div>
                 <Form className="dataLeitura">
-                  <Form.Group>
+                  
                     <FloatingLabel
                       controlId="floatingInput"
                       label="Leitura iniciada em:"
@@ -225,9 +226,9 @@ function EditarPage() {
                         // placeholder="Insíra o título do Livro"
                       />
                     </FloatingLabel>
-                  </Form.Group>
+                  
 
-                  <Form.Group>
+                  
                     <FloatingLabel
                       controlId="floatingInput"
                       label="Leitura terminada em:"
@@ -241,15 +242,14 @@ function EditarPage() {
                         onChange={handleChange}
                       />
                     </FloatingLabel>
-                  </Form.Group>
+                  
                 </Form>
               </div>
-            </Form>
           </Col>
 
           <Col className="col">
             <Form>
-              <Form.Group>
+              
                 <FloatingLabel
                   controlId="floatingInput"
                   label="Avaliação"
@@ -263,9 +263,9 @@ function EditarPage() {
                     placeholder="De 1 a 5, quanto você gosta do Livro"
                   />
                 </FloatingLabel>
-              </Form.Group>
+              
 
-              <Form.Group>
+              
                 <FloatingLabel
                   controlId="floatingInput"
                   label="Idioma"
@@ -279,9 +279,9 @@ function EditarPage() {
                     placeholder="Insíra o idioma do Livro"
                   />
                 </FloatingLabel>
-              </Form.Group>
+              
 
-              <Form.Group>
+              
                 <FloatingLabel
                   controlId="floatingInput"
                   label="Capa do Livro"
@@ -295,9 +295,9 @@ function EditarPage() {
                     placeholder="Insíra a URL da capa do Livro"
                   />
                 </FloatingLabel>
-              </Form.Group>
+              
 
-              <Form.Group>
+              
                 <FloatingLabel
                   controlId="floatingInput"
                   label="URL/ Local do Arquivo"
@@ -311,9 +311,9 @@ function EditarPage() {
                     placeholder="Insíra a URL do repositório do Livro"
                   />
                 </FloatingLabel>
-              </Form.Group>
+              
 
-              <Form.Group>
+              
                 <FloatingLabel
                   controlId="floatingInput"
                   label="Status"
@@ -332,9 +332,9 @@ function EditarPage() {
                     </Form.Select>
                   )}
                 </FloatingLabel>
-              </Form.Group>
+              
 
-              <Form.Group className="mb-3">
+              <div className="mb-3">
                 <FloatingLabel
                   controlId="floatingTextarea2"
                   label="Comentários"
@@ -348,7 +348,7 @@ function EditarPage() {
                     style={{ height: "100px" }}
                   />
                 </FloatingLabel>
-              </Form.Group>
+              </div>
             </Form>
           </Col>
         </Row>
