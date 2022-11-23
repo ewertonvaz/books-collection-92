@@ -4,16 +4,28 @@
 
 ![Tela inicial do aplicativo](/docs/images/home-page.png)
 
+Neste projeto construímos um aplicativo web para controle de biblioteca pessoal que permite o
+cadastro de informações sobre seus livros e o status de leitura de cada um deles.
+O aplicativo implementa três diferentes listas de livros :
+
+- **Lendo**: para a relação de livro que você está lendo atualmente, podendo guardar a página em que parou de ler e outras informações.
+- **Quero ler**: com as informações de livros que você tem interesse em ler futuramente. O aplicativo permite fazer buscas de livros no **Google Books** e importar os respectivos dados diretamente para a base do aplicativo.
+- **Lido**: guarda a realação de livros que já foram lidos, e, entre outras informações, permite armazenar sua avaliação (rating) pessoal do livro que leu.
+
 ## Equipe
 
-Nosso time neste projeto foram as seguintes pessoas:
+Nosso time neste projeto foi composto pelas seguintes pessoas desenvolvedoras:
 
 - Ewerton Vaz
 - Priscila Franco
 - Rodrigo Monclair
 - Roberto Malheiros
 
-sad
+Agradecimento especial a professora **Karen Okasaki** que, com suas aulas excelentes, repassou todo o conhecimento necessário para criarmos este aplicativo.
+
+## Projeto 2
+
+O aplication **Books collection - 92** foi criado como o segundo projeto do bootcamp Iron Hack Web Development - Full time - ENAP / 2022 - Turma 92.
 
 ## Links
 
@@ -23,69 +35,28 @@ Este projeto está disponível nos seguintes Links:
 
 **Git Hub** : [https://github.com/ewertonvaz/books-collection-92](https://github.com/ewertonvaz/books-collection-92)
 
-## Available Scripts
+**Apresentação** :[Apresentação Books Collection]()
 
-In the project directory, you can run:
+# Instalação
 
-### `npm start`
+Para instalar o aplicativo execute os comandos:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`git clone https://github.com/ewertonvaz/books-collection-92.git`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`cd books-collection-92`
 
-### `npm test`
+`npm install`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`npm start`
 
-### `npm run build`
+Após este último comando o aplicativo estará disponível na URL [http://localhost:3000](http://localhost:3000) .
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Estrutura das pastas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Na pasta _docs_ estão as imagens e documentos utlizados neste aquivo README.md.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Utilizamos a estrutura de pastas padrão do React e gravamos os arquivos na pastas _src_ e nela criamos algumas subpastas seguindo a convenção que a professora nos mostrou durante as aulas.
 
-### `npm run eject`
+Na raíz da pasta _assets_ estão as imagens utilzidas neste projeto, também existem as subpastas _epubs_ e _pdf_, onde estão, alguns arquivos de e-books que foram utilizados no projeto.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+A pasta _components_ armazena o código fonte dos Componentes React criados para este projeto e contém os seguinte arquivos:
