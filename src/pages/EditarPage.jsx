@@ -5,13 +5,13 @@ import {
   Row,
   Col,
   Container,
-  Card,
   FloatingLabel,
 } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import ConfirmaExclusao from "../components/ConfirmaExclusao";
+import image from "../assets/placeholder-book.jpg"
 
 function EditarPage() {
   const { livroID } = useParams();
@@ -36,6 +36,7 @@ function EditarPage() {
     status: "ler",
   });
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function fetchBooks() {
@@ -72,6 +73,7 @@ function EditarPage() {
       );
 
       toast.success("Alterações feitas com sucesso!!");
+      navigate(`/livro/${livroID}`)
     } catch (error) {
       console.log(error);
       toast.error("As Alterações não foram concluídas");
@@ -84,220 +86,269 @@ function EditarPage() {
       <Container>
         <Row>
           <Col className="col-3">
-            <Card
-              style={{ width: "14rem", height: "20rem", marginTop: "30px" }}
-            >
-              <Card.Img variant="top" src={form.imagemCapa} />
-            </Card>
+          <img
+                variant="top"
+                style={{ width: "14rem", height: "20rem", marginTop: "30px", border: "1px solid #ddd", borderRadius:"5px" }}
+                src={form.imagemCapa? form.imagemCapa : image}
+                alt="capa do livro"
+              />
+
             <div className="buttons">
-              <Button variant="secondary" onClick={handleSubmit}>
-                Salvar
-              </Button>{" "}
+              
+                <Button
+                  variant="secondary"
+                  onClick={handleSubmit}
+                >
+                  Salvar
+                </Button>{" "}
+              
               <ConfirmaExclusao book={book} />
             </div>
           </Col>
 
           <Col>
             <Form>
-              <FloatingLabel
-                controlId="floatingInput"
-                label="Título"
-                className="mb-3"
-              >
-                <Form.Control
-                  type="text"
-                  name="titulo"
-                  value={form.titulo}
-                  onChange={handleChange}
-                  placeholder="Insíra o título do Livro"
-                />
-              </FloatingLabel>
-
-              <FloatingLabel
-                controlId="floatingInput"
-                label="Subtítulo"
-                className="mb-3"
-              >
-                <Form.Control
-                  type="text"
-                  name="subtitulo"
-                  value={form.subtitulo}
-                  onChange={handleChange}
-                  placeholder="Insíra o subtítulo do Livro"
-                />
-              </FloatingLabel>
-
-              <FloatingLabel
-                controlId="floatingInput"
-                label="Autor"
-                className="mb-3"
-              >
-                <Form.Control
-                  type="text"
-                  name="autor"
-                  value={form.autor}
-                  onChange={handleChange}
-                  placeholder="Insíra o nome do autor do Livro"
-                />
-              </FloatingLabel>
-
-              <FloatingLabel
-                controlId="floatingInput"
-                label="Número de Páginas"
-                className="mb-3"
-              >
-                <Form.Control
-                  type="number"
-                  name="qtdPaginas"
-                  value={form.qtdPaginas}
-                  onChange={handleChange}
-                  placeholder="Insíra o número de páginas do Livro"
-                />
-              </FloatingLabel>
-
-              <FloatingLabel
-                controlId="floatingInput"
-                label="Categoria"
-                className="mb-3"
-              >
-                <Form.Control
-                  type="text"
-                  name="categoria"
-                  value={form.categoria}
-                  onChange={handleChange}
-                  placeholder="Insíra o gênero do Livro"
-                />
-              </FloatingLabel>
-
-              <FloatingLabel
-                controlId="floatingInput"
-                label="Tipo"
-                className="mb-3"
-              >
-                {!isLoading && (
-                  <Form.Select
-                    name="tipo"
-                    defaultValue={form.tipo}
+             
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Título"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="text"
+                    name="titulo"
+                    value={form.titulo}
                     onChange={handleChange}
-                  >
-                    <option>Selecione o tipo de Extensão do arquivo</option>
-                    <option value="PDF">PDF</option>
-                    <option value="ePub">ePub</option>
-                    <option value="Fisico">Fisico</option>
-                  </Form.Select>
-                )}
-              </FloatingLabel>
+                    placeholder="Insíra o título do Livro"
+                  />
+                </FloatingLabel>
+              
+
+              
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Subtítulo"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="text"
+                    name="subtitulo"
+                    value={form.subtitulo}
+                    onChange={handleChange}
+                    placeholder="Insíra o subtítulo do Livro"
+                  />
+                </FloatingLabel>
+              
+
+              
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Autor"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="text"
+                    name="autor"
+                    value={form.autor}
+                    onChange={handleChange}
+                    placeholder="Insíra o nome do autor do Livro"
+                  />
+                </FloatingLabel>
+              
+
+              
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Número de Páginas"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="number"
+                    name="qtdPaginas"
+                    value={form.qtdPaginas}
+                    onChange={handleChange}
+                    placeholder="Insíra o número de páginas do Livro"
+                  />
+                </FloatingLabel>
+
+
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Última Página Lida"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="number"
+                    name="ultPagLida"
+                    value={form.ultPagLida}
+                    onChange={handleChange}
+                    placeholder="Insíra o número de páginas do Livro"
+                  />
+                </FloatingLabel>
+              
+
+              
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Categoria"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="text"
+                    name="categoria"
+                    value={form.categoria}
+                    onChange={handleChange}
+                    placeholder="Insíra o gênero do Livro"
+                  />
+                </FloatingLabel>
+              
+
+              
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Tipo"
+                  className="mb-3"
+                >
+                  {!isLoading && (
+                    <Form.Select
+                      name="tipo"
+                      defaultValue={form.tipo}
+                      onChange={handleChange}
+                    >
+                      <option>Selecione o tipo de Extensão do arquivo</option>
+                      <option value="PDF">PDF</option>
+                      <option value="ePub">ePub</option>
+                      <option value="Fisico">Fisico</option>
+                    </Form.Select>
+                  )}
+                </FloatingLabel>
+              
+
             </Form>
-            <div>
-              <Form className="dataLeitura">
-                <FloatingLabel
-                  controlId="floatingInput"
-                  label="Leitura iniciada em:"
-                  className="mb-3"
-                >
-                  <Form.Control
-                    type="date"
-                    style={{ width: "200px" }}
-                    name="dataInicio"
-                    value={form.dataInicio}
-                    onChange={handleChange}
-                    // placeholder="Insíra o título do Livro"
-                  />
-                </FloatingLabel>
+              <div>
+                <Form className="dataLeitura">
+                  
+                    <FloatingLabel
+                      controlId="floatingInput"
+                      label="Leitura iniciada em:"
+                      className="mb-3"
+                    >
+                      <Form.Control
+                        type="date"
+                        style={{ width: "200px" }}
+                        name="dataInicio"
+                        value={form.dataInicio}
+                        onChange={handleChange}
+                        // placeholder="Insíra o título do Livro"
+                      />
+                    </FloatingLabel>
+                  
 
-                <FloatingLabel
-                  controlId="floatingInput"
-                  label="Leitura terminada em:"
-                  className="mb-3"
-                >
-                  <Form.Control
-                    type="date"
-                    style={{ width: "200px" }}
-                    name="dataConclusao"
-                    value={form.dataConclusao}
-                    onChange={handleChange}
-                  />
-                </FloatingLabel>
-              </Form>
-            </div>
+                  
+                    <FloatingLabel
+                      controlId="floatingInput"
+                      label="Leitura terminada em:"
+                      className="mb-3"
+                    >
+                      <Form.Control
+                        type="date"
+                        style={{ width: "200px" }}
+                        name="dataConclusao"
+                        value={form.dataConclusao}
+                        onChange={handleChange}
+                      />
+                    </FloatingLabel>
+                  
+                </Form>
+              </div>
           </Col>
 
           <Col className="col">
             <Form>
-              <FloatingLabel
-                controlId="floatingInput"
-                label="Avaliação"
-                className="mb-3"
-              >
-                <Form.Control
-                  type="number"
-                  name="ranking"
-                  value={form.ranking}
-                  onChange={handleChange}
-                  placeholder="De 1 a 5, quanto você gosta do Livro"
-                />
-              </FloatingLabel>
-
-              <FloatingLabel
-                controlId="floatingInput"
-                label="Idioma"
-                className="mb-3"
-              >
-                <Form.Control
-                  type="text"
-                  name="idioma"
-                  value={form.idioma}
-                  onChange={handleChange}
-                  placeholder="Insíra o idioma do Livro"
-                />
-              </FloatingLabel>
-
-              <FloatingLabel
-                controlId="floatingInput"
-                label="Capa do Livro"
-                className="mb-3"
-              >
-                <Form.Control
-                  type="text"
-                  name="imagemCapa"
-                  value={form.imagemCapa}
-                  onChange={handleChange}
-                  placeholder="Insíra a URL da capa do Livro"
-                />
-              </FloatingLabel>
-
-              <FloatingLabel
-                controlId="floatingInput"
-                label="URL/ Local do Arquivo"
-                className="mb-3"
-              >
-                <Form.Control
-                  type="text"
-                  name="caminho"
-                  value={form.caminho}
-                  onChange={handleChange}
-                  placeholder="Insíra a URL do repositório do Livro"
-                />
-              </FloatingLabel>
-
-              <FloatingLabel
-                controlId="floatingInput"
-                label="Status"
-                className="mb-3"
-              >
-                {!isLoading && (
-                  <Form.Select
-                    name="status"
-                    defaultValue={form.status}
+              
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Avaliação"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="number"
+                    name="ranking"
+                    value={form.ranking}
                     onChange={handleChange}
-                  >
-                    <option>Selecione o status de leitura</option>
-                    <option value="lido">Lido</option>
-                    <option value="ler">Quero Ler</option>
-                    <option value="lendo">Lendo</option>
-                  </Form.Select>
-                )}
-              </FloatingLabel>
+                    placeholder="De 1 a 5, quanto você gosta do Livro"
+                  />
+                </FloatingLabel>
+              
+
+              
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Idioma"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="text"
+                    name="idioma"
+                    value={form.idioma}
+                    onChange={handleChange}
+                    placeholder="Insíra o idioma do Livro"
+                  />
+                </FloatingLabel>
+              
+
+              
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Capa do Livro"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="text"
+                    name="imagemCapa"
+                    value={form.imagemCapa}
+                    onChange={handleChange}
+                    placeholder="Insíra a URL da capa do Livro"
+                  />
+                </FloatingLabel>
+              
+
+              
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="URL"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="text"
+                    name="caminho"
+                    value={form.caminho}
+                    onChange={handleChange}
+                    placeholder="Insíra a URL do repositório do Livro"
+                  />
+                </FloatingLabel>
+              
+
+              
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Status"
+                  className="mb-3"
+                >
+                  {!isLoading && (
+                    <Form.Select
+                      name="status"
+                      defaultValue={form.status}
+                      onChange={handleChange}
+                    >
+                      <option>Selecione o status de leitura</option>
+                      <option value="Lido">Lido</option>
+                      <option value="Ler">Quero Ler</option>
+                      <option value="Lendo">Lendo</option>
+                    </Form.Select>
+                  )}
+                </FloatingLabel>
+              
 
               <div className="mb-3">
                 <FloatingLabel
