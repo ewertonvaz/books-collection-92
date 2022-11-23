@@ -15,7 +15,7 @@ function GoogleBooksPage() {
         startIndex : 0,
         countResults: 0,
         totalItems : 0,
-        currPage : 1,
+        currPage : 0,
         lastPage : 0
     });
 
@@ -75,7 +75,7 @@ function GoogleBooksPage() {
 
     function handleKeyDown(e){
         if (e.key === "Enter"){
-            doSearch(0,1);
+            doSearch(0,0);
         }
     }
 
