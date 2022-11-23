@@ -42,7 +42,7 @@ function DetalhesPage() {
           </Link>
           {"   "}
           <Link
-            to={`/livro/${livro._id}/leitura`}
+            to={`/livro/leitura/${livro._id}`}
             className="btn btn-secondary"
           >
             Ler
