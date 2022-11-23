@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 import Paginator from '../components/Paginator';
 
 const TIPOS_STATUS = {
-    LENDO: "lendo",
-    LER: "ler",
-    LIDO: "lido"
+    LENDO: "Lendo",
+    LER: "Ler",
+    LIDO: "Lido"
 };
 
 const PAGE_SIZE = 12;
