@@ -1,12 +1,16 @@
 import BookPdf from "../components/BookPdf";
 import BookEpub from "../components/BookEpub";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
-function Leitura({ caminho, tipo, ultPagLida }) {
+function Leitura() {
   const [showLeitor, setShowLeitor] = useState(false);
-  console.log(caminho);
-  console.log(tipo);
-  console.log(ultPagLida);
+  const parametro = useLocation();
+  const { livro } = parametro.state;
+  console.log(livro);
+  console.log(livro.tipo);
+  console.log(livro.ultPagLida);
+
   return (
     <div className="livro-lista">
       <div>
@@ -18,11 +22,19 @@ function Leitura({ caminho, tipo, ultPagLida }) {
           Epub
         </button>
       </div>
-      {!showLeitor && (
-        <BookPdf tipo={caminho} ultPagLida={ultPagLida} caminho={tipo} />
+      {livro.tipo === "PDF" && (
+        <BookPdf
+          tipo={livro.caminho}
+          ultPagLida={livro.ultPagLida}
+          caminho={livro.tipo}
+        />
       )}
-      {showLeitor && (
-        <BookEpub tipo={caminho} ultPagLida={ultPagLida} caminho={tipo} />
+      {livro.tipo === "Epub" && (
+        <BookEpub
+          tipo={livro.caminho}
+          ultPagLida={livro.ultPagLida}
+          caminho={livro.tipo}
+        />
       )}
     </div>
   );

@@ -42,6 +42,7 @@ function DetalhesPage() {
           </Link>
           {"   "}
           <Link
+            state={{ livro }}
             to={`/livro/leitura/${livro._id}`}
             className="btn btn-secondary"
           >
