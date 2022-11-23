@@ -5,6 +5,7 @@ import Rating from "./shared/Rating";
 import axios from "axios";
 import{ useState, useEffect } from "react";
 import toast from "react-hot-toast";
+import coverPlaceHolder from '../assets/book-cover-placeholder.png';
 
 const apiUrl = "https://ironrest.herokuapp.com/books-collection-92";
 const finOneUrl = "https://ironrest.herokuapp.com/findOne/books-collection-92";
@@ -16,6 +17,16 @@ function GoogleBookDetails({show, book, hide}) {
     const { volumeInfo } = book;
     const images = volumeInfo.imageLinks ? Object.values(volumeInfo.imageLinks) : [];
     const navigator = useNavigate();
+
+    let yearPublished = ""; //Calcula ano de publicação
+    if (volumeInfo.publishedDate) {
+      let datePub = new Date(volumeInfo.publishedDate);
+      yearPublished = datePub.getFullYear();
+      if (datePub.getDate() === 31 && datePub.getMonth() + 1 === 12)
+      {
+        yearPublished += 1;
+      }
+    }
 
     useEffect( () => {
       // console.log('mudei o livro', book);
@@ -60,7 +71,7 @@ function GoogleBookDetails({show, book, hide}) {
         console.log(e);
         toast.error("Algo deu errado. Tente novamente por favor.");
       }
-      console.log('livro importado :', lastImport);
+      // console.log('livro importado :', lastImport);
     }
 
     function handleClose(){
@@ -96,8 +107,12 @@ function GoogleBookDetails({show, book, hide}) {
         <Modal.Body>
           <Row>
             <Col>
-              <Image src={images[0]} />
+              <Image src={images[0] ? images[0] : coverPlaceHolder} />
               <Rating color="gold" width="180px">{volumeInfo.averageRating}</Rating>
+              <h3>{volumeInfo.authors ? volumeInfo.authors[0] : "Não informado"}</h3>
+              <p><strong>Gênero :</strong> {volumeInfo.categories ? volumeInfo.categories[0] : "Não informado" }</p>
+              <p><strong>Páginas :</strong> {volumeInfo.pageCount ? volumeInfo.pageCount : "Não informado" }</p>
+              <p><strong>Idioma :</strong> {volumeInfo.language ? volumeInfo.language : "Não informado" }</p>
             </Col>
             <Col>
               <h1>{volumeInfo.title}</h1>
@@ -105,7 +120,13 @@ function GoogleBookDetails({show, book, hide}) {
               <p>{volumeInfo.description ? volumeInfo.description.substring(0, 1000) + "..." : ""}</p>
             </Col>
             <Col>
-              
+              <h2>Editora: {volumeInfo.publisher}</h2>
+              <h3>Publicação : {yearPublished}</h3>
+              {
+                volumeInfo.industryIdentifiers && volumeInfo.industryIdentifiers.map( el => {
+                  return ( <p key={el.type}>{el.type}: {el.identifier}</p> );
+                })
+              }
             </Col>
           </Row>
         </Modal.Body>

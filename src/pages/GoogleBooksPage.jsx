@@ -41,7 +41,7 @@ function GoogleBooksPage() {
     //let itemCount = 0;  
 
     async function doSearch(startIndex, currPage){
-        if (search !== "") {
+        if (search !== "" && !loading) {
            setLoading(true);
             try {
                 const res = await axios.get(
@@ -109,8 +109,7 @@ function GoogleBooksPage() {
             { loading && <Spinner color="#3955BD" width="48px"/> }
         </div>
         {
-            Object.keys(books).length === 0 ? <p>Nenhum livro listado</p> 
-            :
+            Object.keys(books).length !== 0 && 
             // <>
             //     {
             //         books.items && books.items.forEach( book => {

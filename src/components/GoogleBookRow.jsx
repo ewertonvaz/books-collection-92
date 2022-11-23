@@ -1,9 +1,10 @@
 import Rating from './shared/Rating';
 import styles from './GoogleBookRow.module.css';
+import coverPlaceHolder from '../assets/book-cover-placeholder.png';
 
 function GoogleBookRow({book, onClick}) {
     const { volumeInfo } = book;
-    const images = volumeInfo.imageLinks ? Object.values(volumeInfo.imageLinks) : [];
+    const images = volumeInfo.imageLinks ? Object.values(volumeInfo.imageLinks) : [coverPlaceHolder];
     return ( 
         <tr className={styles.wrapper} onClick={onClick}>
                 <td><img src={images[0]} alt="capa do livro" /></td>

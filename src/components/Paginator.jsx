@@ -30,7 +30,11 @@ function Paginator({paginator, maxResults, doSearch }) {
             <Pagination.First onClick={firstClick}/>
             <Pagination.Prev onClick={previousClick}/>
             <Pagination.Item>
-                {`Mostrando ${paginator.startIndex + 1} a ${paginator.startIndex + paginator.countResults} de ${paginator.totalItems}`}
+                { paginator.countResults > 0 ?
+                    `Mostrando ${paginator.startIndex + 1} a ${paginator.startIndex + paginator.countResults} de ${paginator.totalItems}`
+                :
+                  'Nenhum livro listado'
+                }
             </Pagination.Item>
             <Pagination.Next onClick={nextClick}/>
             <Pagination.Last onClick={lastClick}/>
