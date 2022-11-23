@@ -10,8 +10,8 @@
   flex-direction: row;
 }
 .react-pdf__Page__canvas {
-  max-width: 450px;
-  max-height: 400px;
+  max-width: 550px;
+  max-height: 600px;
   top: 1rem;
   left: 1rem;
   padding: 1rem;
@@ -22,8 +22,8 @@
   background-color: white;
 }
 .react-pdf__Page__textContent {
-  max-width: 450px;
-  max-height: 400px;
+  max-width: 550px;
+  max-height: 600px;
   text-align: justify;
   top: 1rem;
   left: 1rem;
@@ -52,8 +52,8 @@
 }
 
 .presentation {
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 500px;
+  max-height: 500px;
   overflow: hidden;
   font-family: "Roboto Serif", serif !important;
 }
