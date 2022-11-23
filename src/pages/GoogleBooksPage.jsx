@@ -8,6 +8,9 @@ import GoogleBookDetails from "../components/GoogleBookDetails";
 import Spinner from "../components/shared/Spinner";
 import GoogleBookRow from "../components/GoogleBookRow";
 import GoTopButtom from "../components/shared/GoTopButtom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 const apiUrl = "https://www.googleapis.com/books/v1/volumes";
 
 function GoogleBooksPage() {
@@ -95,7 +98,10 @@ function GoogleBooksPage() {
             <InputGroup.Text 
                 id="basic-addon1"
                 onClick={ ()=> doSearch(0,1)}
-                disable={search !== "" ? "true" : "false"}>🔍
+                disable={search !== "" ? "true" : "false"}
+                className="btn btn-outline-secondary btn-sm"
+            >
+                <FontAwesomeIcon icon={faSearch} style={{width: "18px", height: "18px", verticalAlign: "-0.5em"}}/>
             </InputGroup.Text>
         </InputGroup>
         <div style={{display:"flex", gap:"12px"}}>

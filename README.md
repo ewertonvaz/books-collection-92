@@ -1,6 +1,27 @@
-# Getting Started with Create React App
+# Books Collection - 92
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Aplicativo para controle de biblioteca pessoal
+
+![Tela inicial do aplicativo](/docs/images/home-page.png)
+
+## Equipe
+
+Nosso time neste projeto foram as seguintes pessoas:
+
+- Ewerton Vaz
+- Priscila Franco
+- Rodrigo Monclair
+- Roberto Malheiros
+
+sad
+
+## Links
+
+Este projeto está disponível nos seguintes Links:
+
+**Deploy** : [https://books-collection-92.netlify.app/](https://books-collection-92.netlify.app/)
+
+**Git Hub** : [https://github.com/ewertonvaz/books-collection-92](https://github.com/ewertonvaz/books-collection-92)
 
 ## Available Scripts
 
