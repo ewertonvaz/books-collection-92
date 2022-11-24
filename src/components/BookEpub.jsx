@@ -19,13 +19,7 @@ const BookEpub = () => {
     setPageNumber(pageNumber + 1 >= numPages ? numPages : pageNumber + 1);
   return (
     <div className="epub" style={{ position: "relative", height: "100%" }}>
-      <nav>
-        <button onClick={goToPrevPage}>Anterior</button>
-        <button onClick={goToNextPage}>Avançar</button>
-        <p>
-          Página {pageNumber} de {numPages}
-        </p>
-      </nav>
+      <p className="Aviso">Pressione o teclado para próxima página! </p>
       <ReactEpubViewer
         url={teste}
         ref={viewerRef}
