@@ -12,14 +12,14 @@ function Leitura() {
 
   return (
     <div className="livro-lista">
-      {livro.tipo === "PDF" && (
+      {livro.tipo.toLowerCase() === "pdf" && (
         <BookPdf
           tipo={livro.tipo}
           ultPagLida={livro.ultPagLida}
           caminho={livro.caminho}
         />
       )}
-      {livro.tipo === "Epub" && (
+      {livro.tipo.toLowerCase() === "epub" && (
         <BookEpub
           tipo={livro.tipo}
           ultPagLida={livro.ultPagLida}
