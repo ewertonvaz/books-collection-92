@@ -15,11 +15,9 @@ function BookPdf({ caminho, ultPagLida }) {
   const [url, setUrl] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
-  /*
   document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
   });
-*/
 
   useEffect(() => {
     caminho.includes("http") ? setUrl(urlCors + caminho) : setUrl(pdf);
