@@ -7,13 +7,16 @@ import {
   Container,
   FloatingLabel,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import image from "../assets/placeholder-book.jpg"
 
 
 function CadastroPage() {
+  const {livroID}=useParams()
+  const navigate = useNavigate()
   const [form, setForm] = useState({
     googleID: "",
     autor: "",
@@ -66,6 +69,7 @@ function CadastroPage() {
       });
 
       toast.success("Cadastro concluído com sucesso!!");
+      navigate(`/livro/${livroID}`)
     } catch (error) {
       console.log(error);
       toast.error("o Cadastro não pode ser concluído");
