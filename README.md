@@ -35,7 +35,7 @@ Este projeto está disponível nos seguintes Links:
 
 **Git Hub** : [https://github.com/ewertonvaz/books-collection-92](https://github.com/ewertonvaz/books-collection-92)
 
-**Apresentação** :[Apresentação Books Collection](https://bit.ly/3GJ3F1c)
+**Apresentação** : [https://bit.ly/3GJ3F1c](https://bit.ly/3GJ3F1c)
 
 # Instalação
 
