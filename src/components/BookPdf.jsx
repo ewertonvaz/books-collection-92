@@ -24,8 +24,7 @@ function BookPdf({ caminho, ultPagLida }) {
   useEffect(() => {
     caminho.includes("http") ? setUrl(urlCors + caminho) : setUrl(pdf);
   }, [caminho]);
-  //console.log(url);
-  console.log(typeof pdf);
+
   /*Quando o documento é carregado com sucesso*/
   function onDocumentLoadSuccess({ numPages, options }) {
     setNumPages(numPages);
