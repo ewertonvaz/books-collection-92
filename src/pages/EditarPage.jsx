@@ -323,9 +323,9 @@ function EditarPage() {
                     onChange={handleChange}
                   >
                     <option>Selecione o status de leitura</option>
-                    <option value="lido">Lido</option>
-                    <option value="ler">Quero Ler</option>
-                    <option value="lendo">Lendo</option>
+                    <option value="Lido">Lido</option>
+                    <option value="Ler">Quero Ler</option>
+                    <option value="Lendo">Lendo</option>
                   </Form.Select>
                 )}
               </FloatingLabel>
