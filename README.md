@@ -51,12 +51,19 @@ Para instalar o aplicativo execute os comandos:
 
 Após este último comando o aplicativo estará disponível na URL [http://localhost:3000](http://localhost:3000) .
 
+**Atenção !** este projeto ainda _não é multitenant_, de forma que ao seguir os passos acima e acessar o aplicativo serão exibidos os livro cadastrados por todas as pessoas que já utilizaram este programa e não apenas os que forem cadastrados por você.
+
 ## Estrutura das pastas
 
 Na pasta _docs_ estão as imagens e documentos utilizados neste aquivo README.md.
 
 Utilizamos a estrutura de pastas padrão do React e gravamos os arquivos na pastas _src_ e nela criamos algumas subpastas seguindo a convenção que a professora nos mostrou durante as aulas.
 
-Na raíz da pasta _assets_ estão as imagens utilzidas neste projeto, também existem as subpastas _epubs_ e _pdf_, onde estão, alguns arquivos de e-books que foram utilizados no projeto.
+Na raíz da pasta _assets_ estão as imagens utilizadas neste projeto, também existem as subpastas _epubs_ e _pdf_, onde estão, alguns arquivos de e-books que foram utilizados no projeto durante as fases de teste.
 
-A pasta _components_ armazena o código fonte dos Componentes React criados para este projeto e contém os seguinte arquivos:
+A pasta _components_ armazena o código fonte dos Componentes React criados para este projeto. Utilizamos o recurso de **CSS Module** para criar um arquivo de CSS para cada componente. Assim, p.ex. os arquivos **BookEpub.css** e **BookEpub.jsx** se referem ao mesmo componente, sendo o primeiro arquivo os códigos CSS e o segundo seu código fonte em JS.
+
+Nesta pasta existe uma subpasta com o nome _shared_ que armazena os componentes comuns que podem ser usados para compor outros componentes e/ou páginas do aplicativo.
+Um exemplo é o componente **Rating** (estrelas) que foi utilzido em várias telas do aplicativo.
+
+Finalmente temos a pasta _pages_ que contém a implementação de todas as telas do aplicativo.
