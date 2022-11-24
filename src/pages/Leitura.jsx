@@ -7,7 +7,6 @@ function Leitura() {
   //const [showLeitor, setShowLeitor] = useState(false);
   const parametro = useLocation();
   const { livro } = parametro.state;
-  console.log(livro.tipo);
   //console.log(livro.ultPagLida);
 
   return (
