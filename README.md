@@ -10,7 +10,7 @@ O aplicativo implementa três diferentes listas de livros :
 
 - **Lendo**: para a relação de livro que você está lendo atualmente, podendo guardar a página em que parou de ler e outras informações.
 - **Quero ler**: com as informações de livros que você tem interesse em ler futuramente. O aplicativo permite fazer buscas de livros no **Google Books** e importar os respectivos dados diretamente para a base do aplicativo.
-- **Lido**: guarda a realação de livros que já foram lidos, e, entre outras informações, permite armazenar sua avaliação (rating) pessoal do livro que leu.
+- **Lido**: guarda a relação de livros que já foram lidos, e, entre outras informações, permite armazenar sua avaliação (rating) pessoal do livro que leu.
 
 ## Equipe
 
@@ -41,13 +41,16 @@ Este projeto está disponível nos seguintes Links:
 
 Para instalar o aplicativo execute os comandos:
 
-`git clone https://github.com/ewertonvaz/books-collection-92.git`
+```
+git clone https://github.com/ewertonvaz/books-collection-92.git
 
-`cd books-collection-92`
+cd books-collection-92
 
-`npm install`
+npm install
 
-`npm start`
+npm start
+
+```
 
 Após este último comando o aplicativo estará disponível na URL [http://localhost:3000](http://localhost:3000) .
 
@@ -59,7 +62,7 @@ Na pasta _docs_ estão as imagens e documentos utilizados neste aquivo README.md
 
 Utilizamos a estrutura de pastas padrão do React e gravamos os arquivos na pastas _src_ e nela criamos algumas subpastas seguindo a convenção que a professora nos mostrou durante as aulas.
 
-Na raíz da pasta _assets_ estão as imagens utilizadas neste projeto, também existem as subpastas _epubs_ e _pdf_, onde estão, alguns arquivos de e-books que foram utilizados no projeto durante as fases de teste.
+Na raíz da pasta _assets_ estão as imagens utilizadas neste projeto, também existem as subpastas _epubs_ e _pdf_, onde aramazenamos alguns arquivos de e-books que foram utilizados no projeto durante os testes do aplicativo.
 
 A pasta _components_ armazena o código fonte dos Componentes React criados para este projeto. Utilizamos o recurso de **CSS Module** para criar um arquivo de CSS para cada componente. Assim, p.ex. os arquivos **BookEpub.css** e **BookEpub.jsx** se referem ao mesmo componente, sendo o primeiro arquivo os códigos CSS e o segundo seu código fonte em JS.
 
