@@ -95,6 +95,7 @@ function CadastroPage() {
               <Form.Group>
                 <Button
                   variant="secondary"
+                  disabled = {form.titulo === "" ? true:false}
                   onClick={handleSubmit}
                 >
                   Salvar
