@@ -6,8 +6,9 @@ import {
   Col,
   Container,
   FloatingLabel,
+  
 } from "react-bootstrap";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import ConfirmaExclusao from "../components/ConfirmaExclusao";
@@ -106,6 +107,9 @@ function EditarPage() {
               >
                 Salvar
               </Button>{" "}
+              <Link to={`/`} className="btn btn-secondary">
+              Voltar
+            </Link>
               <ConfirmaExclusao book={book} />
             </div>
           </Col>
