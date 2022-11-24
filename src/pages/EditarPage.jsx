@@ -33,7 +33,7 @@ function EditarPage() {
     dataConclusao: "",
     tipo: "",
     caminho: "",
-    status: "ler",
+    status: "Ler",
   });
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate()
@@ -59,7 +59,7 @@ function EditarPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  console.log(form);
+  // console.log(form);
 
   async function handleSubmit(e) {
     e.preventDefault();

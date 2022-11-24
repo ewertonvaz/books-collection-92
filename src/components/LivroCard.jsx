@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import coverPlaceHolder from '../assets/book-cover-placeholder.png';
 
 function LivroCard({ livro }) {
 
@@ -7,7 +8,7 @@ function LivroCard({ livro }) {
         <div className="livro-card">
             <div className="livro-card-imagem">
                 <Link to={`/livro/${livro._id}`}>
-                    <img className="img-fluid" src={livro.imagemCapa} alt={livro.titulo} />
+                    <img className="img-fluid" src={livro.imagemCapa || coverPlaceHolder} alt={livro.titulo} />
                 </Link>
             </div>
             <div className="livro-card-titulo">

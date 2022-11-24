@@ -65,7 +65,7 @@ body {
 .buttons {
   display: flex;
   justify-content:flex-start ;
-  gap: 30px;
+  gap: 10px;
   margin: 60px 30px;
 }
 
@@ -74,4 +74,16 @@ body {
   flex-direction: row;
   gap: 58px;
   justify-content:center ;
+}
+
+.livro-detalhe-imagem{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.livro-detalhe-imagem img {
+  max-height: 300px;
+  min-height: 300px;
 }
