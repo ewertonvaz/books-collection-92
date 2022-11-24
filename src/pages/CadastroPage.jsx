@@ -30,7 +30,7 @@ function CadastroPage() {
     dataConclusao: "",
     tipo: "",
     caminho: "",
-    status: "ler",
+    status: "Ler",
   });
 
   function handleChange(e) {
@@ -62,7 +62,7 @@ function CadastroPage() {
         dataConclusao: "",
         tipo: "",
         caminho: "",
-        status: "ler",
+        status: "Ler",
       });
 
       toast.success("Cadastro concluído com sucesso!!");

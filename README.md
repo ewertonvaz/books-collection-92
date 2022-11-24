@@ -35,7 +35,7 @@ Este projeto está disponível nos seguintes Links:
 
 **Git Hub** : [https://github.com/ewertonvaz/books-collection-92](https://github.com/ewertonvaz/books-collection-92)
 
-**Apresentação** :[Apresentação Books Collection]()
+**Apresentação** :[Apresentação Books Collection](https://bit.ly/3GJ3F1c)
 
 # Instalação
 
@@ -53,7 +53,7 @@ Após este último comando o aplicativo estará disponível na URL [http://local
 
 ## Estrutura das pastas
 
-Na pasta _docs_ estão as imagens e documentos utlizados neste aquivo README.md.
+Na pasta _docs_ estão as imagens e documentos utilizados neste aquivo README.md.
 
 Utilizamos a estrutura de pastas padrão do React e gravamos os arquivos na pastas _src_ e nela criamos algumas subpastas seguindo a convenção que a professora nos mostrou durante as aulas.
 
