@@ -16,6 +16,7 @@ function Leitura() {
           tipo={livro.tipo}
           ultPagLida={livro.ultPagLida}
           caminho={livro.caminho}
+          id={livro._id}
         />
       )}
       {livro.tipo.toLowerCase() === "epub" && (
@@ -23,6 +24,7 @@ function Leitura() {
           tipo={livro.tipo}
           ultPagLida={livro.ultPagLida}
           caminho={livro.caminho}
+          id={livro._id}
         />
       )}
     </div>
