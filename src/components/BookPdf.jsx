@@ -13,7 +13,7 @@ function BookPdf({ id, caminho, ultPagLida }) {
 
   const [numPages, setNumPages] = useState(null);
   const [url, setUrl] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber, setPageNumber] = useState(ultPagLida);
   const host = `${caminho}${id}.pdf`;
   document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
