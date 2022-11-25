@@ -54,7 +54,7 @@ function GoogleBookDetails({show, book, hide}) {
         dataConclusao: null,
         tipo: "",
         caminho: "",
-        status: "ler"
+        status: "Ler"
       };
       try {
         const res = await axios.post( apiUrl, newBook );
