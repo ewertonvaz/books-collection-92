@@ -13,6 +13,10 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import ConfirmaExclusao from "../components/ConfirmaExclusao";
 import image from "../assets/placeholder-book.jpg";
+import { formatDateFromApi } from "../util/date.util";
+
+//const ApiURL = "https://ironrest.herokuapp.com/books-collection-92/";
+const ApiURL = "http://localhost:8080/books/";
 
 function EditarPage() {
   const { livroID } = useParams();
@@ -43,10 +47,21 @@ function EditarPage() {
     async function fetchBooks() {
       try {
         const response = await axios.get(
-          `https://ironrest.herokuapp.com/books-collection-92/${livroID}`
+          ApiURL + livroID
         );
-        setBook(response.data);
-        setForm(response.data);
+        const bookData = {...response.data };
+        // Converte as datas recebidas da API
+        const { dataInicio, dataConclusao } = bookData;
+        if ( dataInicio ) {
+          bookData.dataInicio = formatDateFromApi(dataInicio);
+        }
+        
+        if(dataConclusao) {
+          bookData.dataConclusao = formatDateFromApi(dataConclusao);
+        }
+        //
+        setBook(bookData);
+        setForm(bookData);
         setIsLoading(false);
       } catch (error) {
         console.log(error);
@@ -69,7 +84,7 @@ function EditarPage() {
 
     try {
       await axios.put(
-        `https://ironrest.herokuapp.com/books-collection-92/${livroID}`,
+        ApiURL + livroID,
         clone
       );
 

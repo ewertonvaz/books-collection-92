@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import coverPlaceHolder from '../assets/book-cover-placeholder.png';
 import Rating from "../components/shared/Rating";
+import { formatDateBR } from "../util/date.util";
 
+//const ApiURL = "https://ironrest.herokuapp.com/books-collection-92/";
+const ApiURL = "http://localhost:8080/books/";
 
 function DetalhesPage() {
   const { livroID } = useParams();
@@ -15,11 +18,20 @@ function DetalhesPage() {
   useEffect(() => {
     async function fetchLivro() {
       const response = await axios.get(
-        `https://ironrest.herokuapp.com/books-collection-92/${livroID}`
+        ApiURL + livroID
       );
 
-      const livroApi = response.data;
-
+      const livroApi = {...response.data };
+      // Converte as datas recebidas da API
+      const { dataInicio, dataConclusao } = livroApi;
+      if ( dataInicio ) {
+        livroApi.dataInicio = formatDateBR(dataInicio);
+      }
+      
+      if(dataConclusao) {
+        livroApi.dataConclusao = formatDateBR(dataConclusao);
+      }
+      //
       setLivro(livroApi);
 
       setProgressoLeitura(

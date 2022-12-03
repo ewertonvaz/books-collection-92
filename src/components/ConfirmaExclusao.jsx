@@ -6,6 +6,10 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import {useNavigate} from 'react-router-dom'
 
+//const ApiURL = "https://ironrest.herokuapp.com/books-collection-92/";
+const ApiURL = "http://localhost:8080/books/";
+
+
 function ConfirmaExclusao({book}) {
 
   const clone = {...book}  
@@ -21,7 +25,7 @@ function ConfirmaExclusao({book}) {
   async function handleDelete(e) {
      delete clone._id   
     try {
-      await axios.delete(`https://ironrest.herokuapp.com/books-collection-92/${livroID}`, clone);
+      await axios.delete( ApiURL + livroID, clone);
       toast.success("Livro excluído com sucesso!");
       handleClose()
       navigate("/")
