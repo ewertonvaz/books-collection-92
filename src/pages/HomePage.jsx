@@ -6,6 +6,9 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Paginator from '../components/Paginator';
 
+//const ApiURL = "https://ironrest.herokuapp.com/findAll/books-collection-92";
+const ApiURL = "http://localhost:8080/books";
+
 const TIPOS_STATUS = {
     LENDO: "Lendo",
     LER: "Ler",
@@ -80,7 +83,7 @@ function HomePage() {
         async function fetchLivrosApiPorStatus() {
 
             const response = await axios.get(
-                `https://ironrest.herokuapp.com/findAll/books-collection-92?status=${status}`
+                ApiURL + `/status/${status}`
             );
 
             const livrosApi = response.data;

@@ -7,8 +7,9 @@ import{ useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import coverPlaceHolder from '../assets/book-cover-placeholder.png';
 
-const apiUrl = "https://ironrest.herokuapp.com/books-collection-92";
-const finOneUrl = "https://ironrest.herokuapp.com/findOne/books-collection-92";
+//const ApiURL = "https://ironrest.herokuapp.com/books-collection-92";
+//const findOneUrl = "https://ironrest.herokuapp.com/findOne/books-collection-92";
+const ApiURL = "http://localhost:8080/books/";
 
 function GoogleBookDetails({show, book, hide}) {
     const [ imported, setImported] = useState(false);
@@ -57,12 +58,12 @@ function GoogleBookDetails({show, book, hide}) {
         status: "Ler"
       };
       try {
-        const res = await axios.post( apiUrl, newBook );
-        //console.log(res.data.ops[0]);
-        setLastImport( () => res.data.ops[0] );
+        const res = await axios.post( ApiURL, newBook );
+        console.log(res.data);
+        setLastImport( () => res.data );
         setImported(true);
         if (openEdit) {
-          navigator(`/livro/${res.data.ops[0]._id}/editar`);
+          navigator(`/livro/${res.data._id}/editar`);
         } else {
           handleClose();
         }
@@ -87,9 +88,9 @@ function GoogleBookDetails({show, book, hide}) {
         return;
       }
       try {
-        const res = await axios.get( finOneUrl + `?googleID=${id}` );
-        if (res.data && id === res.data.googleID){
-          setLastImport(res.data);
+        const res = await axios.get( ApiURL + `googleID/${id}` );
+        if (res.data[0] && id === res.data[0].googleID){
+          setLastImport(res.data[0]);
           setImported(true);
         } else {
           setImported(false);

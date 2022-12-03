@@ -13,6 +13,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import image from "../assets/placeholder-book.jpg"
 
+//const ApiURL = "https://ironrest.herokuapp.com/books-collection-92";
+const ApiURL = "http://localhost:8080/books";
 
 function CadastroPage() {
   const {livroID}=useParams()
@@ -44,8 +46,8 @@ function CadastroPage() {
     e.preventDefault();
 
     try {
-      await axios.post(
-        "https://ironrest.herokuapp.com/books-collection-92",
+      const livro = await axios.post(
+        ApiURL,
         form
       );
 
@@ -69,7 +71,8 @@ function CadastroPage() {
       });
 
       toast.success("Cadastro concluído com sucesso!!");
-      navigate(`/livro/${livroID}`)
+      console.log(livro);
+      navigate(`/livro/${livro.data._id}`)
     } catch (error) {
       console.log(error);
       toast.error("o Cadastro não pode ser concluído");
