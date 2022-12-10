@@ -16,7 +16,7 @@ import image from "../assets/placeholder-book.jpg";
 import { formatDateFromApi } from "../util/date.util";
 
 //const ApiURL = "https://ironrest.herokuapp.com/books-collection-92/";
-const ApiURL = "http://localhost:8080/books/";
+const ApiURL = "https://reader-gov-back.cyclic.app/books/";
 
 function EditarPage() {
   const { livroID } = useParams();
