@@ -6,7 +6,8 @@ import Rating from "../components/shared/Rating";
 import { formatDateBR } from "../util/date.util";
 
 //const ApiURL = "https://ironrest.herokuapp.com/books-collection-92/";
-const ApiURL = "http://localhost:8080/books/";
+// const ApiURL = "http://localhost:8080/books/";
+const ApiURL = "https://reader-gov-back.cyclic.app/books/";
 
 function DetalhesPage() {
   const { livroID } = useParams();

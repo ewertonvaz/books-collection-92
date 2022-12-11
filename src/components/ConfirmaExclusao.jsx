@@ -7,8 +7,8 @@ import toast from "react-hot-toast";
 import {useNavigate} from 'react-router-dom'
 
 //const ApiURL = "https://ironrest.herokuapp.com/books-collection-92/";
-const ApiURL = "http://localhost:8080/books/";
-
+// const ApiURL = "http://localhost:8080/books/";
+const ApiURL = "https://reader-gov-back.cyclic.app/books/";
 
 function ConfirmaExclusao({book}) {
 

@@ -9,7 +9,8 @@ import coverPlaceHolder from '../assets/book-cover-placeholder.png';
 
 //const ApiURL = "https://ironrest.herokuapp.com/books-collection-92";
 //const findOneUrl = "https://ironrest.herokuapp.com/findOne/books-collection-92";
-const ApiURL = "http://localhost:8080/books/";
+// const ApiURL = "http://localhost:8080/books/";
+const ApiURL = "https://reader-gov-back.cyclic.app/books/";
 
 function GoogleBookDetails({show, book, hide}) {
     const [ imported, setImported] = useState(false);

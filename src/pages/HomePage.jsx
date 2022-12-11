@@ -1,13 +1,14 @@
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import LivroCard from "../components/LivroCard";
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import LivroCard from "../components/LivroCard";
 import Paginator from '../components/Paginator';
 
 //const ApiURL = "https://ironrest.herokuapp.com/findAll/books-collection-92";
-const ApiURL = "http://localhost:8080/books";
+// const ApiURL = "http://localhost:8080/books";
+const ApiURL = "https://reader-gov-back.cyclic.app/books";
 
 const TIPOS_STATUS = {
     LENDO: "Lendo",
