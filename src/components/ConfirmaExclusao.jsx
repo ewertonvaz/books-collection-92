@@ -2,16 +2,11 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useParams } from "react-router-dom";
 import {useState} from 'react'
-import axios from "axios";
+import api from "../api/api";
 import toast from "react-hot-toast";
 import {useNavigate} from 'react-router-dom'
 
-//const ApiURL = "https://ironrest.herokuapp.com/books-collection-92/";
-const ApiURL = "https://reader-gov-back.cyclic.app/books/";
-
-
 function ConfirmaExclusao({book}) {
-
   const clone = {...book}  
   const { livroID } = useParams();
 
@@ -25,7 +20,7 @@ function ConfirmaExclusao({book}) {
   async function handleDelete(e) {
      delete clone._id   
     try {
-      await axios.delete( ApiURL + livroID, clone);
+      await api.delete( 'books/' + livroID, clone);
       toast.success("Livro excluído com sucesso!");
       handleClose()
       navigate("/")

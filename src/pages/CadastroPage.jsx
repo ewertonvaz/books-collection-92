@@ -8,16 +8,11 @@ import {
   FloatingLabel,
 } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import axios from "axios";
 import toast from "react-hot-toast";
 import image from "../assets/placeholder-book.jpg"
-
-//const ApiURL = "https://ironrest.herokuapp.com/books-collection-92";
-const ApiURL = "https://reader-gov-back.cyclic.app/books";
+import api from "../api/api";
 
 function CadastroPage() {
-  const {livroID}=useParams()
   const navigate = useNavigate()
   const [form, setForm] = useState({
     googleID: "",
@@ -46,8 +41,8 @@ function CadastroPage() {
     e.preventDefault();
 
     try {
-      const livro = await axios.post(
-        ApiURL,
+      const livro = await api.post(
+        "/books/",
         form
       );
 
@@ -71,14 +66,12 @@ function CadastroPage() {
       });
 
       toast.success("Cadastro concluído com sucesso!!");
-      console.log(livro);
       navigate(`/livro/${livro.data._id}`)
     } catch (error) {
       console.log(error);
       toast.error("o Cadastro não pode ser concluído");
     }
   }
-  console.log(form);
 
   return (
     <div>

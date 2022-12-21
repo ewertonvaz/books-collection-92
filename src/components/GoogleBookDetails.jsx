@@ -2,14 +2,10 @@ import styles from "./GoogleBookDetails.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Modal, Button, Row, Col, Image } from "react-bootstrap";
 import Rating from "./shared/Rating";
-import axios from "axios";
+import api from "../api/api.js";
 import{ useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import coverPlaceHolder from '../assets/book-cover-placeholder.png';
-
-//const ApiURL = "https://ironrest.herokuapp.com/books-collection-92";
-//const findOneUrl = "https://ironrest.herokuapp.com/findOne/books-collection-92";
-const ApiURL = "https://reader-gov-back.cyclic.app/books/";
 
 function GoogleBookDetails({show, book, hide}) {
     const [ imported, setImported] = useState(false);
@@ -58,7 +54,7 @@ function GoogleBookDetails({show, book, hide}) {
         status: "Ler"
       };
       try {
-        const res = await axios.post( ApiURL, newBook );
+        const res = await api.post( "/books", newBook );
         console.log(res.data);
         setLastImport( () => res.data );
         setImported(true);
@@ -88,7 +84,7 @@ function GoogleBookDetails({show, book, hide}) {
         return;
       }
       try {
-        const res = await axios.get( ApiURL + `googleID/${id}` );
+        const res = await api.get( `/books/googleID/${id}` );
         if (res.data[0] && id === res.data[0].googleID){
           setLastImport(res.data[0]);
           setImported(true);

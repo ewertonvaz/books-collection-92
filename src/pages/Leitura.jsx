@@ -14,7 +14,7 @@ function Leitura() {
       {livro.tipo.toLowerCase() === "pdf" && (
         <BookPdf
           tipo={livro.tipo}
-          ultPagLida={livro.ultPagLida}
+          ultPagLida={livro.ultPagLida ? livro.ultPagLida : 1}
           caminho={livro.caminho}
           id={livro._id}
         />

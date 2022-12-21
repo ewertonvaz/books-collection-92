@@ -5,7 +5,7 @@ import pdf from "./../assets/pdfs/auto.pdf";
 
 /*ESSA VARIÁVEL DE URL USA UM OUTRO LINK ANTES PARA
 EVITAR UM ERRO DE CORS */
-const urlCors = `https://cors-anywhere.herokuapp.com/`;
+// const urlCors = `https://cors-anywhere.herokuapp.com/`;
 function BookPdf({ id, caminho, ultPagLida }) {
   /* PARA USAR A BIBLIOTECA PRECISA DE UM pdf.worker.js,
   IMPORTARMOS ELE DE OUTRO SITE PARA EVITAR PROBLEMAS NA BUILD E DEPLOY */
@@ -14,14 +14,16 @@ function BookPdf({ id, caminho, ultPagLida }) {
   const [numPages, setNumPages] = useState(null);
   const [url, setUrl] = useState(null);
   const [pageNumber, setPageNumber] = useState(ultPagLida);
-  const host = `${caminho}${id}.pdf`;
+  //const host = `${caminho}${id}.pdf`;
   document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
   });
 
   useEffect(() => {
-    caminho.includes("http") ? setUrl(urlCors + host) : setUrl(pdf);
-  }, [host]);
+    // caminho.includes("http") ? setUrl(urlCors + host) : setUrl(pdf);
+    // caminho.includes("http") ? setUrl(host) : setUrl(pdf);
+    caminho.includes("http") ? setUrl(caminho) : setUrl(pdf);
+  }, [caminho]);
 
   /*Quando o documento é carregado com sucesso*/
   function onDocumentLoadSuccess({ numPages, options }) {
