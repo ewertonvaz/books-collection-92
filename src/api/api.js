@@ -2,7 +2,7 @@ import axios from "axios";
 
 const apiURLs = {
   development: "http://localhost:8080",
-  production: "https://reader-gov-back.cyclic.app"
+  production: "https://books-collection.cyclic.app"
 };
 
 const api = axios.create({ 
