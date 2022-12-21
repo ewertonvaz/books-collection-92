@@ -4,6 +4,7 @@ import LivroCard from "../components/LivroCard";
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Paginator from '../components/Paginator';
+import Spinner from '../components/shared/Spinner';
 import api from '../api/api';
 
 const TIPOS_STATUS = {
@@ -16,6 +17,7 @@ const PAGE_SIZE = 12;
 
 
 function HomePage() {
+    const [isLoading, setIsLoading] = useState(true);
 
     const [livrosApiPorStatus, setLivrosApiPorStatus] = useState([]);
 
@@ -78,10 +80,11 @@ function HomePage() {
     useEffect(() => {
 
         async function fetchLivrosApiPorStatus() {
-
+            setIsLoading(true);
             const response = await api.get(
                 `/books/status/${status}`
             );
+            setIsLoading(false);
 
             const livrosApi = response.data;
 
@@ -152,63 +155,68 @@ function HomePage() {
 
 
     return (
-        <div className="container pt-3">
-            <div className="px-4">
-                <div className="row justify-content-between">
+        <>
+        { isLoading && <Spinner />}
+        { !isLoading && 
+            <div className="container pt-3">
+                <div className="px-4">
+                    <div className="row justify-content-between">
 
-                    <div className="col-4">
-                        <form className="form-inline" onSubmit={handleFormSubmit}>
-                            <div className="input-group">
-                                <input className="form-control form-control-sm" type="text" placeholder="Buscar" name="pesquisar" id="pesquisar" onChange={handlePesquisarChange} />
-                                <button className="btn btn-outline-secondary btn-sm">
-                                    <FontAwesomeIcon icon={faSearch} />
-                                </button>
-                            </div>
+                        <div className="col-4">
+                            <form className="form-inline" onSubmit={handleFormSubmit}>
+                                <div className="input-group">
+                                    <input className="form-control form-control-sm" type="text" placeholder="Buscar" name="pesquisar" id="pesquisar" onChange={handlePesquisarChange} />
+                                    <button className="btn btn-outline-secondary btn-sm">
+                                        <FontAwesomeIcon icon={faSearch} />
+                                    </button>
+                                </div>
 
-                        </form>
-                    </div>
-                    <div className="col">
-                        <form className="form-inline">
-                            <div className="text-end">
-                                <Link className="btn btn-outline-secondary btn-sm" to="/livro/cadastro">Novo livro
-                                </Link>
-                                <Link className="btn btn-outline-primary btn-sm ms-3" to="/livro/google">Google Livros
-                                </Link>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div className="row pt-5">
-                    <div className="col">
-
-                        <ul className="nav nav-tabs" id="tabStatus">
-                            <li className="nav-item">
-                                <button className={`nav-link ${status === TIPOS_STATUS.LENDO ? 'active fw-bold' : ''}`} id="tab-lendo" data-status={TIPOS_STATUS.LENDO} type="button" onClick={handleTabChange}>Lendo</button>
-                            </li>
-                            <li className="nav-item">
-                                <button className={`nav-link ${status === TIPOS_STATUS.LER ? 'active fw-bold' : ''}`} id="tab-ler" data-status={TIPOS_STATUS.LER} type="button" onClick={handleTabChange}>Quero ler</button>
-                            </li>
-                            <li className="nav-item">
-                                <button className={`nav-link ${status === TIPOS_STATUS.LIDO ? 'active fw-bold' : ''}`} id="tab-lido" data-status={TIPOS_STATUS.LIDO} type="button" onClick={handleTabChange}>Lidos</button>
-                            </li>
-
-                        </ul>
-
-                        <div className="mt-3 livro-lista">
-                            {livrosExibir.map((livro) => {
-                                return (
-                                    <LivroCard key={livro._id} livro={livro} />
-                                );
-                            })}
+                            </form>
+                        </div>
+                        <div className="col">
+                            <form className="form-inline">
+                                <div className="text-end">
+                                    <Link className="btn btn-outline-secondary btn-sm" to="/livro/cadastro">Novo livro
+                                    </Link>
+                                    <Link className="btn btn-outline-primary btn-sm ms-3" to="/livro/google">Google Livros
+                                    </Link>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                </div>
-                <div className="row pt-5 ">
-                    {getPaginatorContent()}
+
+                    <div className="row pt-5">
+                        <div className="col">
+
+                            <ul className="nav nav-tabs" id="tabStatus">
+                                <li className="nav-item">
+                                    <button className={`nav-link ${status === TIPOS_STATUS.LENDO ? 'active fw-bold' : ''}`} id="tab-lendo" data-status={TIPOS_STATUS.LENDO} type="button" onClick={handleTabChange}>Lendo</button>
+                                </li>
+                                <li className="nav-item">
+                                    <button className={`nav-link ${status === TIPOS_STATUS.LER ? 'active fw-bold' : ''}`} id="tab-ler" data-status={TIPOS_STATUS.LER} type="button" onClick={handleTabChange}>Quero ler</button>
+                                </li>
+                                <li className="nav-item">
+                                    <button className={`nav-link ${status === TIPOS_STATUS.LIDO ? 'active fw-bold' : ''}`} id="tab-lido" data-status={TIPOS_STATUS.LIDO} type="button" onClick={handleTabChange}>Lidos</button>
+                                </li>
+
+                            </ul>
+
+                            <div className="mt-3 livro-lista">
+                                {livrosExibir.map((livro) => {
+                                    return (
+                                        <LivroCard key={livro._id} livro={livro} />
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row pt-5 ">
+                        {getPaginatorContent()}
+                    </div>
                 </div>
             </div>
-        </div>
+        }
+        </>
     );
 
 }
