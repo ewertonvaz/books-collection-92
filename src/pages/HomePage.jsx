@@ -1,13 +1,10 @@
-import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import LivroCard from "../components/LivroCard";
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Paginator from '../components/Paginator';
-
-//const ApiURL = "https://ironrest.herokuapp.com/findAll/books-collection-92";
-const ApiURL = "https://reader-gov-back.cyclic.app/books";
+import api from '../api/api';
 
 const TIPOS_STATUS = {
     LENDO: "Lendo",
@@ -82,8 +79,8 @@ function HomePage() {
 
         async function fetchLivrosApiPorStatus() {
 
-            const response = await axios.get(
-                ApiURL + `/status/${status}`
+            const response = await api.get(
+                `/books/status/${status}`
             );
 
             const livrosApi = response.data;
@@ -150,7 +147,6 @@ function HomePage() {
                 <div className="fs-5 ps-5">Nenhum livro encontrado</div>
             )
         }
-
 
     }
 
